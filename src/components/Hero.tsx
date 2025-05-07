@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Button } from './ui/button';
 import { Link } from 'react-router-dom';
-import { LineChart, BarChart } from 'lucide-react';
+import { ChartBar, ChartLine, ChartPie } from 'lucide-react';
 import { ChartContainer } from './ui/chart';
 import { 
   BarChart as RechartsBarChart,
@@ -10,43 +10,228 @@ import {
   XAxis,
   YAxis,
   Tooltip,
-  ResponsiveContainer
+  ResponsiveContainer,
+  LineChart as RechartsLineChart,
+  Line,
+  PieChart as RechartsPieChart,
+  Pie,
+  Cell,
+  Legend
 } from 'recharts';
 
 const Hero: React.FC = () => {
+  const [activeQueryIndex, setActiveQueryIndex] = useState(0);
   const [typedText, setTypedText] = useState("");
   const [showChart, setShowChart] = useState(false);
   const [isTyping, setIsTyping] = useState(false);
-  const fullText = "Show me the incremental revenue month on month over the last 6 months?";
-  const typingSpeed = 50;
   
-  const monthlyData = [
-    { month: 'Jan', revenue: 12500 },
-    { month: 'Feb', revenue: 14700 },
-    { month: 'Mar', revenue: 16800 },
-    { month: 'Apr', revenue: 19200 },
-    { month: 'May', revenue: 21500 },
-    { month: 'Jun', revenue: 24300 },
+  // Define all queries and their corresponding data
+  const queries = [
+    {
+      text: "Show me the incremental revenue month on month over the last 6 months?",
+      chartType: "bar",
+      data: [
+        { month: 'Jan', revenue: 12500 },
+        { month: 'Feb', revenue: 14700 },
+        { month: 'Mar', revenue: 16800 },
+        { month: 'Apr', revenue: 19200 },
+        { month: 'May', revenue: 21500 },
+        { month: 'Jun', revenue: 24300 },
+      ],
+      metrics: [
+        { label: 'Overall Growth', value: '+94.4%', color: 'text-superlens-textBlue' },
+        { label: 'Avg. Monthly Growth', value: '+14.2%', color: 'text-superlens-textBlue' },
+        { label: 'Projection Next Month', value: '↑ $27.1k', color: 'text-green-600' },
+      ]
+    },
+    {
+      text: "Any improvement in customer engagement last month?",
+      chartType: "line",
+      data: [
+        { day: '1', engagement: 45 },
+        { day: '5', engagement: 52 },
+        { day: '10', engagement: 61 },
+        { day: '15', engagement: 58 },
+        { day: '20', engagement: 68 },
+        { day: '25', engagement: 73 },
+        { day: '30', engagement: 82 },
+      ],
+      metrics: [
+        { label: 'Overall Increase', value: '+82.2%', color: 'text-green-600' },
+        { label: 'Active Users', value: '+28.5%', color: 'text-green-600' },
+        { label: 'Session Duration', value: '+12.3%', color: 'text-superlens-textBlue' },
+      ]
+    },
+    {
+      text: "How does the customer acquisition funnel analysis look like for last quarter?",
+      chartType: "pie",
+      data: [
+        { name: 'Awareness', value: 1200 },
+        { name: 'Consideration', value: 850 },
+        { name: 'Acquisition', value: 420 },
+        { name: 'Retention', value: 310 },
+      ],
+      metrics: [
+        { label: 'Conversion Rate', value: '35%', color: 'text-superlens-textBlue' },
+        { label: 'Cost Per Acquisition', value: '-12.4%', color: 'text-green-600' },
+        { label: 'Retention Rate', value: '73.8%', color: 'text-superlens-textBlue' },
+      ]
+    }
   ];
 
-  useEffect(() => {
-    setIsTyping(true);
-    let currentIndex = 0;
-    const interval = setInterval(() => {
-      if (currentIndex < fullText.length) {
-        setTypedText(prev => prev + fullText.charAt(currentIndex));
-        currentIndex++;
-      } else {
-        clearInterval(interval);
-        setIsTyping(false);
-        setTimeout(() => {
-          setShowChart(true);
-        }, 500);
-      }
-    }, typingSpeed);
+  const COLORS = ['#0056b3', '#0ea5e9', '#002850', '#00c2ff'];
+  const typingSpeed = 50;
+  const displayDuration = 6000; // 6 seconds for each query/chart
+  const transitionDuration = 1000; // 1 second for transitions
 
-    return () => clearInterval(interval);
-  }, []);
+  // Reset and start typing the next query
+  useEffect(() => {
+    const setupNextQuery = () => {
+      setTypedText("");
+      setShowChart(false);
+      setIsTyping(true);
+      
+      let currentIndex = 0;
+      const currentQuery = queries[activeQueryIndex].text;
+      
+      const interval = setInterval(() => {
+        if (currentIndex < currentQuery.length) {
+          setTypedText(prev => prev + currentQuery.charAt(currentIndex));
+          currentIndex++;
+        } else {
+          clearInterval(interval);
+          setIsTyping(false);
+          setTimeout(() => {
+            setShowChart(true);
+            
+            // Set timer for next query
+            setTimeout(() => {
+              setActiveQueryIndex((prevIndex) => (prevIndex + 1) % queries.length);
+            }, displayDuration);
+            
+          }, transitionDuration);
+        }
+      }, typingSpeed);
+      
+      return () => clearInterval(interval);
+    };
+    
+    setupNextQuery();
+  }, [activeQueryIndex]);
+
+  // Render the appropriate chart based on the active query
+  const renderActiveChart = () => {
+    const activeQuery = queries[activeQueryIndex];
+    
+    switch (activeQuery.chartType) {
+      case 'bar':
+        return (
+          <div className="h-48 w-full">
+            <ResponsiveContainer width="100%" height="100%">
+              <RechartsBarChart
+                data={activeQuery.data}
+                margin={{ top: 5, right: 10, left: 10, bottom: 5 }}
+              >
+                <XAxis dataKey="month" tick={{ fontSize: 12 }} />
+                <YAxis
+                  tickFormatter={(value) => `$${value/1000}k`}
+                  tick={{ fontSize: 12 }}
+                  width={40}
+                />
+                <Tooltip
+                  formatter={(value) => [`$${Number(value).toLocaleString()}`, 'Revenue']}
+                  labelFormatter={(label) => `Month: ${label}`}
+                />
+                <Bar 
+                  dataKey="revenue" 
+                  fill="#0056b3" 
+                  animationDuration={2000}
+                  animationBegin={300}
+                  radius={[4, 4, 0, 0]} 
+                />
+              </RechartsBarChart>
+            </ResponsiveContainer>
+          </div>
+        );
+        
+      case 'line':
+        return (
+          <div className="h-48 w-full">
+            <ResponsiveContainer width="100%" height="100%">
+              <RechartsLineChart
+                data={activeQuery.data}
+                margin={{ top: 5, right: 10, left: 10, bottom: 5 }}
+              >
+                <XAxis dataKey="day" tick={{ fontSize: 12 }} />
+                <YAxis 
+                  tick={{ fontSize: 12 }}
+                  width={40}
+                />
+                <Tooltip
+                  formatter={(value) => [`${value}`, 'Engagement Score']}
+                  labelFormatter={(label) => `Day: ${label}`}
+                />
+                <Line 
+                  type="monotone"
+                  dataKey="engagement" 
+                  stroke="#0ea5e9" 
+                  strokeWidth={2}
+                  dot={{ stroke: '#0ea5e9', strokeWidth: 2, r: 4 }}
+                  activeDot={{ stroke: '#0ea5e9', strokeWidth: 2, r: 6 }}
+                  animationDuration={2000}
+                />
+              </RechartsLineChart>
+            </ResponsiveContainer>
+          </div>
+        );
+        
+      case 'pie':
+        return (
+          <div className="h-48 w-full">
+            <ResponsiveContainer width="100%" height="100%">
+              <RechartsPieChart>
+                <Pie
+                  data={activeQuery.data}
+                  dataKey="value"
+                  nameKey="name"
+                  cx="50%"
+                  cy="50%"
+                  outerRadius={70}
+                  label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
+                  animationDuration={2000}
+                >
+                  {activeQuery.data.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                  ))}
+                </Pie>
+                <Tooltip 
+                  formatter={(value) => [value, 'Users']}
+                />
+              </RechartsPieChart>
+            </ResponsiveContainer>
+          </div>
+        );
+        
+      default:
+        return null;
+    }
+  };
+
+  // Render the appropriate chart icon based on the active query
+  const renderChartIcon = () => {
+    const activeQuery = queries[activeQueryIndex];
+    
+    switch (activeQuery.chartType) {
+      case 'bar':
+        return <ChartBar className="w-4 h-4 text-superlens-blue" />;
+      case 'line':
+        return <ChartLine className="w-4 h-4 text-superlens-blue" />;
+      case 'pie':
+        return <ChartPie className="w-4 h-4 text-superlens-blue" />;
+      default:
+        return null;
+    }
+  };
 
   return (
     <section className="bg-white pt-32 pb-20 relative overflow-hidden">
@@ -118,64 +303,48 @@ const Hero: React.FC = () => {
                       <div className="w-4 h-4 rounded-full bg-superlens-blue"></div>
                     </div>
                     <div className="bg-gray-100 rounded-lg p-3 max-w-[90%] w-full">
-                      <p className="text-sm text-gray-700 mb-3">Here's the incremental revenue month on month over the last 6 months:</p>
+                      <p className="text-sm text-gray-700 mb-3">Here's {
+                        activeQueryIndex === 0 ? "the incremental revenue month on month over the last 6 months:" :
+                        activeQueryIndex === 1 ? "the customer engagement analysis for last month:" :
+                        "the customer acquisition funnel analysis for the last quarter:"
+                      }</p>
                       
                       {/* Visualization Area */}
                       <div className="bg-white border border-gray-200 rounded-md p-3 mb-3">
                         <div className="flex justify-between items-center mb-2">
-                          <span className="text-xs font-medium text-gray-500">Monthly Revenue (Last 6 Months)</span>
+                          <span className="text-xs font-medium text-gray-500">
+                            {activeQueryIndex === 0 ? "Monthly Revenue (Last 6 Months)" :
+                             activeQueryIndex === 1 ? "Daily Engagement Score (Last Month)" :
+                             "Customer Acquisition Funnel (Last Quarter)"}
+                          </span>
                           <div className="flex space-x-2">
-                            <LineChart className="w-4 h-4 text-gray-400" />
-                            <BarChart className="w-4 h-4 text-superlens-blue" />
+                            {activeQueryIndex !== 2 && <ChartLine className={`w-4 h-4 ${activeQueryIndex === 1 ? 'text-superlens-blue' : 'text-gray-400'}`} />}
+                            {activeQueryIndex !== 1 && <ChartBar className={`w-4 h-4 ${activeQueryIndex === 0 ? 'text-superlens-blue' : 'text-gray-400'}`} />}
+                            {activeQueryIndex === 2 && <ChartPie className="w-4 h-4 text-superlens-blue" />}
                           </div>
                         </div>
                         
-                        {/* Dynamic Bar Chart */}
-                        <div className="h-48 w-full">
-                          <ResponsiveContainer width="100%" height="100%">
-                            <RechartsBarChart
-                              data={monthlyData}
-                              margin={{ top: 5, right: 10, left: 10, bottom: 5 }}
-                            >
-                              <XAxis dataKey="month" tick={{ fontSize: 12 }} />
-                              <YAxis
-                                tickFormatter={(value) => `$${value/1000}k`}
-                                tick={{ fontSize: 12 }}
-                                width={40}
-                              />
-                              <Tooltip
-                                formatter={(value) => [`$${Number(value).toLocaleString()}`, 'Revenue']}
-                                labelFormatter={(label) => `Month: ${label}`}
-                              />
-                              <Bar 
-                                dataKey="revenue" 
-                                fill="#0056b3" 
-                                animationDuration={2000}
-                                animationBegin={300}
-                                radius={[4, 4, 0, 0]} 
-                              />
-                            </RechartsBarChart>
-                          </ResponsiveContainer>
-                        </div>
+                        {/* Dynamic Chart */}
+                        {renderActiveChart()}
                         
                         {/* Metrics Row */}
                         <div className="grid grid-cols-3 gap-2 mt-3 border-t border-gray-100 pt-2">
-                          <div className="text-center">
-                            <p className="text-xs text-gray-500">Overall Growth</p>
-                            <p className="text-sm font-medium text-superlens-textBlue">+94.4%</p>
-                          </div>
-                          <div className="text-center border-x border-gray-100">
-                            <p className="text-xs text-gray-500">Avg. Monthly Growth</p>
-                            <p className="text-sm font-medium text-superlens-textBlue">+14.2%</p>
-                          </div>
-                          <div className="text-center">
-                            <p className="text-xs text-gray-500">Projection Next Month</p>
-                            <p className="text-sm font-medium text-green-600">↑ $27.1k</p>
-                          </div>
+                          {queries[activeQueryIndex].metrics.map((metric, index) => (
+                            <div key={index} className={`text-center ${index === 1 ? 'border-x border-gray-100' : ''}`}>
+                              <p className="text-xs text-gray-500">{metric.label}</p>
+                              <p className={`text-sm font-medium ${metric.color}`}>{metric.value}</p>
+                            </div>
+                          ))}
                         </div>
                       </div>
                       
-                      <p className="text-sm text-gray-700">The data shows consistent revenue growth over the past 6 months. Would you like me to analyze specific growth factors or compare to previous periods?</p>
+                      <p className="text-sm text-gray-700">
+                        {activeQueryIndex === 0 
+                          ? "The data shows consistent revenue growth over the past 6 months. Would you like me to analyze specific growth factors?"
+                          : activeQueryIndex === 1 
+                          ? "Customer engagement has shown a significant improvement in the last month. The trend indicates increasing user interaction."
+                          : "The acquisition funnel shows areas for optimization. Conversion from awareness to consideration could be improved."}
+                      </p>
                     </div>
                   </div>
                 )}
