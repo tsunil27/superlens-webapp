@@ -53,14 +53,17 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				// SuperLens custom colors
+				// SuperLens custom colors - updated to match tellius.com
 				superlens: {
 					blue: '#0056b3',
 					lightBlue: '#0ea5e9',
-					darkBlue: '#00264d',
-					navy: '#001a33',
+					darkBlue: '#001e3e',      // Darker blue similar to tellius
+					navy: '#001029',          // Very dark blue for backgrounds
 					highlight: '#00c2ff',
-					gray: '#f8f9fa'
+					gray: '#f8f9fa',
+					richBlue: '#002850',      // Rich blue similar to tellius main color
+					mutedBlue: '#e8f4fa',     // Light blue background
+					textBlue: '#0a2540'       // Dark blue for text
 				},
 			},
 			fontFamily: {

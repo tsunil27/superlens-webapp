@@ -29,10 +29,10 @@ const Solutions: React.FC = () => {
   ];
 
   return (
-    <section id="solutions" className="py-20 bg-superlens-gray">
+    <section id="solutions" className="py-20 bg-superlens-mutedBlue">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Industry Solutions</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-superlens-textBlue">Industry Solutions</h2>
           <p className="text-gray-600 max-w-2xl mx-auto text-lg">
             SuperLens adapts to the unique challenges of your industry with specialized analytics solutions.
           </p>
@@ -48,7 +48,7 @@ const Solutions: React.FC = () => {
             >
               <div className="lg:w-1/2">
                 <div className="relative">
-                  <div className="absolute -inset-1 bg-gradient-to-r from-superlens-blue to-superlens-lightBlue rounded-lg opacity-30 blur-sm"></div>
+                  <div className="absolute -inset-1 bg-gradient-to-r from-superlens-richBlue to-superlens-blue rounded-lg opacity-30 blur-sm"></div>
                   <img 
                     src={solution.image} 
                     alt={solution.industry} 
@@ -58,13 +58,13 @@ const Solutions: React.FC = () => {
               </div>
               <div className="lg:w-1/2">
                 <div className="bg-white p-8 rounded-lg shadow-sm">
-                  <span className="text-superlens-blue font-semibold mb-2 inline-block">
+                  <span className="text-superlens-richBlue font-semibold mb-2 inline-block">
                     {solution.industry}
                   </span>
-                  <h3 className="text-2xl md:text-3xl font-bold mb-4">{solution.title}</h3>
+                  <h3 className="text-2xl md:text-3xl font-bold mb-4 text-superlens-textBlue">{solution.title}</h3>
                   <p className="text-gray-600 mb-6">{solution.description}</p>
                   <Link to={solution.link}>
-                    <Button>Learn More</Button>
+                    <Button className="bg-superlens-richBlue hover:bg-superlens-darkBlue">Learn More</Button>
                   </Link>
                 </div>
               </div>

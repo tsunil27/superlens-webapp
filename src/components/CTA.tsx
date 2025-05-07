@@ -17,12 +17,12 @@ const CTA: React.FC = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/book-demo">
-              <Button size="lg" className="bg-white text-superlens-blue hover:bg-blue-50 font-medium px-8">
+              <Button size="lg" className="bg-white text-superlens-richBlue hover:bg-blue-50 font-medium px-8">
                 Book a Demo
               </Button>
             </Link>
             <Link to="/free-trial">
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-superlens-blue font-medium px-8">
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-superlens-richBlue font-medium px-8">
                 Start Free Trial
               </Button>
             </Link>
