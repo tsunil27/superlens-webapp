@@ -28,7 +28,7 @@ const Hero: React.FC = () => {
   // Define all queries and their corresponding data
   const queries = [
     {
-      text: "Show me the incremental revenue month on month over the last 6 months?",
+      text: "Show me the incremental revenue month by month over the last 6 months?",
       chartType: "bar",
       data: [
         { month: 'Jan', revenue: 12500 },
@@ -45,7 +45,7 @@ const Hero: React.FC = () => {
       ]
     },
     {
-      text: "Any improvement in customer engagement last month?",
+      text: "Was there improvement in customer engagement last month?",
       chartType: "line",
       data: [
         { day: '1', engagement: 45 },
@@ -63,7 +63,7 @@ const Hero: React.FC = () => {
       ]
     },
     {
-      text: "How does the customer acquisition funnel analysis look like for last quarter?",
+      text: "How does the customer acquisition funnel analysis look for last quarter?",
       chartType: "pie",
       data: [
         { name: 'Awareness', value: 1200 },
