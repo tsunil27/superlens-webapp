@@ -85,9 +85,9 @@ const Hero: React.FC = () => {
   }, [activeQueryIndex, isAutoTyping]);
 
   return (
-    <section className="bg-white pt-32 pb-20 relative overflow-hidden">
+    <section className="bg-white py-10 md:py-16 relative overflow-hidden h-full min-h-screen">
       <div className="absolute inset-0 hero-gradient"></div>
-      <div className="container mx-auto px-4 relative z-10 w-3/4">
+      <div className="container mx-auto px-4 relative z-10">
         <HeroTitle />
         
         <ChatInterface 

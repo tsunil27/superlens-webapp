@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from './Logo';
@@ -11,17 +10,7 @@ import {
 import { Menu, X } from 'lucide-react';
 
 const Navigation: React.FC = () => {
-  const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const navItems = [
     {
@@ -66,16 +55,22 @@ const Navigation: React.FC = () => {
   ];
 
   return (
-    <header 
-      className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white shadow-md py-3' : 'bg-transparent py-5'
-      }`}
-    >
-      <div className="container mx-auto px-4 flex items-center justify-between">
-        <Logo />
+    <header className="bg-white h-full shadow-md">
+      <div className="px-4 py-6 lg:py-10 flex flex-col h-full">
+        <div className="flex justify-between items-center mb-10">
+          <Logo />
+          
+          {/* Mobile menu button */}
+          <button 
+            className="lg:hidden p-2"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
         
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center space-x-8">
+        <nav className={`hidden lg:flex flex-col space-y-6 ${mobileMenuOpen ? 'flex' : 'hidden'} lg:flex`}>
           {navItems.map((item, index) => (
             <div key={index} className="relative group">
               {item.hasDropdown ? (
@@ -88,7 +83,7 @@ const Navigation: React.FC = () => {
                       </svg>
                     </button>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent align="center" className="bg-white rounded-lg shadow-lg p-2 w-64">
+                  <DropdownMenuContent align="end" className="bg-white rounded-lg shadow-lg p-2 w-64">
                     {item.dropdownItems?.map((dropdownItem, idx) => (
                       <DropdownMenuItem key={idx} asChild>
                         <Link 
@@ -113,47 +108,39 @@ const Navigation: React.FC = () => {
           ))}
         </nav>
         
-        {/* Mobile menu button */}
-        <button 
-          className="lg:hidden p-2"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
-      
-      {/* Mobile Navigation */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden bg-white shadow-lg absolute w-full">
-          <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-            {navItems.map((item, index) => (
-              <div key={index} className="py-2">
-                <Link 
-                  to={item.href}
-                  className="text-gray-700 font-medium block py-2"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {item.label}
-                </Link>
-                {item.hasDropdown && (
-                  <div className="pl-4 mt-1 border-l-2 border-gray-200 space-y-2">
-                    {item.dropdownItems?.map((dropdownItem, idx) => (
-                      <Link 
-                        key={idx}
-                        to={dropdownItem.href}
-                        className="block py-1 text-gray-600 hover:text-superlens-blue text-sm"
-                        onClick={() => setMobileMenuOpen(false)}
-                      >
-                        {dropdownItem.label}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
+        {/* Mobile Navigation */}
+        {mobileMenuOpen && (
+          <div className="lg:hidden bg-white absolute top-20 left-0 right-0 z-50 shadow-lg">
+            <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
+              {navItems.map((item, index) => (
+                <div key={index} className="py-2">
+                  <Link 
+                    to={item.href}
+                    className="text-gray-700 font-medium block py-2"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                  {item.hasDropdown && (
+                    <div className="pl-4 mt-1 border-l-2 border-gray-200 space-y-2">
+                      {item.dropdownItems?.map((dropdownItem, idx) => (
+                        <Link 
+                          key={idx}
+                          to={dropdownItem.href}
+                          className="block py-1 text-gray-600 hover:text-superlens-blue text-sm"
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          {dropdownItem.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </header>
   );
 };
