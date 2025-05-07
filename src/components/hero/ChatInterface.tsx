@@ -42,16 +42,6 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({
         {/* Chat Interface Body */}
         <div className="p-4 bg-white">
           <div className="flex flex-col space-y-4">
-            {/* AI Message */}
-            <div className="flex items-start">
-              <div className="w-8 h-8 rounded-full bg-superlens-blue/10 flex items-center justify-center mr-3 flex-shrink-0">
-                <div className="w-4 h-4 rounded-full bg-superlens-blue animate-pulse"></div>
-              </div>
-              <div className="bg-gray-100 rounded-lg p-3 max-w-[80%]">
-                <p className="text-sm text-gray-700">How can I help you analyze your business data today?</p>
-              </div>
-            </div>
-            
             {/* User Message with Typing Animation */}
             <TypingAnimation 
               text={typedText} 
