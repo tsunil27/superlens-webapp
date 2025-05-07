@@ -88,18 +88,26 @@ const Hero: React.FC = () => {
     <section className="bg-white py-10 md:py-16 relative overflow-hidden h-full min-h-screen">
       <div className="absolute inset-0 hero-gradient"></div>
       <div className="container mx-auto px-4 relative z-10">
-        <HeroTitle />
-        
-        <ChatInterface 
-          typedText={typedText}
-          isTyping={isTyping}
-          showChart={showChart}
-          activeQueryIndex={activeQueryIndex}
-          activeQuery={queries[activeQueryIndex]}
-          userInput={userInput}
-          onInputChange={handleUserInput}
-          onKeyDown={handleInputKeyDown}
-        />
+        <div className="flex flex-col lg:flex-row gap-8 items-start">
+          {/* Title and buttons section (left side) */}
+          <div className="lg:w-1/2">
+            <HeroTitle />
+          </div>
+          
+          {/* Chat interface section (right side) */}
+          <div className="lg:w-1/2">
+            <ChatInterface 
+              typedText={typedText}
+              isTyping={isTyping}
+              showChart={showChart}
+              activeQueryIndex={activeQueryIndex}
+              activeQuery={queries[activeQueryIndex]}
+              userInput={userInput}
+              onInputChange={handleUserInput}
+              onKeyDown={handleInputKeyDown}
+            />
+          </div>
+        </div>
       </div>
       
       {/* Abstract Shapes */}
