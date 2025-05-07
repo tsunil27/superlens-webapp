@@ -1,7 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Button } from './ui/button';
 import Logo from './Logo';
 import { 
   DropdownMenu,
@@ -42,9 +41,10 @@ const Navigation: React.FC = () => {
       hasDropdown: true,
       dropdownItems: [
         { label: "Software & Tech", href: "/solutions/software-tech" },
-        { label: "Financial Services", href: "/solutions/financial-services" },
-        { label: "Healthcare", href: "/solutions/healthcare" },
-        { label: "Retail", href: "/solutions/retail" }
+        { label: "Media Entertainment", href: "/solutions/media-entertainment" },
+        { label: "Sports Streaming", href: "/solutions/sports-streaming" },
+        { label: "Gaming", href: "/solutions/gaming" },
+        { label: "Retail & eCommerce", href: "/solutions/retail-ecommerce" }
       ]
     },
     {
@@ -113,19 +113,6 @@ const Navigation: React.FC = () => {
           ))}
         </nav>
         
-        <div className="hidden lg:flex items-center space-x-4">
-          <Link to="/free-trial">
-            <Button variant="outline" className="border-superlens-blue text-superlens-blue hover:bg-superlens-blue hover:text-white">
-              Free Trial
-            </Button>
-          </Link>
-          <Link to="/book-demo">
-            <Button className="bg-superlens-blue text-white hover:bg-superlens-darkBlue">
-              Book a Demo
-            </Button>
-          </Link>
-        </div>
-        
         {/* Mobile menu button */}
         <button 
           className="lg:hidden p-2"
@@ -164,18 +151,6 @@ const Navigation: React.FC = () => {
                 )}
               </div>
             ))}
-            <div className="flex flex-col space-y-3 pt-4">
-              <Link to="/free-trial" onClick={() => setMobileMenuOpen(false)}>
-                <Button variant="outline" className="w-full border-superlens-blue text-superlens-blue">
-                  Free Trial
-                </Button>
-              </Link>
-              <Link to="/book-demo" onClick={() => setMobileMenuOpen(false)}>
-                <Button className="w-full bg-superlens-blue text-white">
-                  Book a Demo
-                </Button>
-              </Link>
-            </div>
           </div>
         </div>
       )}
