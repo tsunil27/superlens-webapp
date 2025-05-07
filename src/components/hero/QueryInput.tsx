@@ -1,19 +1,30 @@
 
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Input } from '../ui/input';
 
 interface QueryInputProps {
   userInput: string;
+  isTyping: boolean;
+  typedText: string;
   onInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) => void;
 }
 
 const QueryInput: React.FC<QueryInputProps> = ({ 
   userInput, 
+  isTyping,
+  typedText,
   onInputChange, 
   onKeyDown 
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
+
+  // Auto-focus the input when typing starts
+  useEffect(() => {
+    if (isTyping && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [isTyping]);
 
   const focusInput = () => {
     if (inputRef.current) {
@@ -28,10 +39,11 @@ const QueryInput: React.FC<QueryInputProps> = ({
           type="text" 
           placeholder="Ask SuperLens about your data..." 
           className="flex-1 text-sm border-none outline-none focus:ring-0 bg-transparent"
-          value={userInput}
+          value={isTyping ? typedText : userInput}
           onChange={onInputChange}
           onKeyDown={onKeyDown}
           ref={inputRef}
+          readOnly={isTyping} // Make input readonly when auto-typing
         />
         <button className="bg-superlens-blue text-white rounded-full w-6 h-6 flex items-center justify-center ml-2">
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor">

@@ -56,7 +56,7 @@ const Hero: React.FC = () => {
       
       let currentIndex = 0;
       const currentQuery = queries[activeQueryIndex].text;
-      setUserInput(currentQuery); // Set the complete query in the input field
+      setUserInput(""); // Don't set complete query now, we'll build it up gradually
       
       const interval = setInterval(() => {
         if (currentIndex < currentQuery.length) {

@@ -1,6 +1,5 @@
 
 import React from 'react';
-import TypingAnimation from './TypingAnimation';
 import AIResponse from './AIResponse';
 import QueryInput from './QueryInput';
 
@@ -42,12 +41,6 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({
         {/* Chat Interface Body */}
         <div className="p-4 bg-white">
           <div className="flex flex-col space-y-4">
-            {/* User Message with Typing Animation */}
-            <TypingAnimation 
-              text={typedText} 
-              isTyping={isTyping} 
-            />
-            
             {/* AI Response with Visualization */}
             <AIResponse
               showChart={showChart}
@@ -58,6 +51,8 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({
             {/* Message Input */}
             <QueryInput
               userInput={userInput}
+              isTyping={isTyping} 
+              typedText={typedText}
               onInputChange={onInputChange}
               onKeyDown={onKeyDown}
             />
