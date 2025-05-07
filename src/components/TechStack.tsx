@@ -11,11 +11,11 @@ const TechStack: React.FC = () => {
       description: "Connect to your existing data warehouses and lakes with minimal setup",
       icon: <Database className="h-8 w-8 text-superlens-richBlue" />,
       technologies: [
-        { name: "Snowflake", logo: "/placeholder.svg" },
-        { name: "AWS Redshift", logo: "/placeholder.svg" },
-        { name: "Google BigQuery", logo: "/placeholder.svg" },
-        { name: "Azure Synapse", logo: "/placeholder.svg" },
-        { name: "MongoDB", logo: "/placeholder.svg" }
+        { name: "Snowflake", logo: "https://upload.wikimedia.org/wikipedia/commons/f/ff/Snowflake_Logo.svg" },
+        { name: "AWS Redshift", logo: "https://static-00.iconduck.com/assets.00/aws-redshift-icon-423x512-midm8na8.png" },
+        { name: "Google BigQuery", logo: "https://cdn.worldvectorlogo.com/logos/google-bigquery-logo-1.svg" },
+        { name: "Azure Synapse", logo: "https://cdn.worldvectorlogo.com/logos/azure-synapse-analytics.svg" },
+        { name: "MongoDB", logo: "https://cdn.worldvectorlogo.com/logos/mongodb-icon-1.svg" }
       ]
     },
     {
@@ -23,11 +23,11 @@ const TechStack: React.FC = () => {
       description: "Integrate with your current enterprise software ecosystem",
       icon: <Server className="h-8 w-8 text-superlens-richBlue" />,
       technologies: [
-        { name: "Salesforce", logo: "/placeholder.svg" },
-        { name: "SAP", logo: "/placeholder.svg" },
-        { name: "Oracle", logo: "/placeholder.svg" },
-        { name: "Microsoft 365", logo: "/placeholder.svg" },
-        { name: "Workday", logo: "/placeholder.svg" }
+        { name: "Salesforce", logo: "https://cdn.worldvectorlogo.com/logos/salesforce-2.svg" },
+        { name: "SAP", logo: "https://cdn.worldvectorlogo.com/logos/sap-3.svg" },
+        { name: "Oracle", logo: "https://cdn.worldvectorlogo.com/logos/oracle-6.svg" },
+        { name: "Microsoft 365", logo: "https://cdn.worldvectorlogo.com/logos/office-365-1.svg" },
+        { name: "Workday", logo: "https://cdn.worldvectorlogo.com/logos/workday-1.svg" }
       ]
     },
     {
@@ -35,11 +35,11 @@ const TechStack: React.FC = () => {
       description: "Leverage your existing APIs and microservices architecture",
       icon: <Link className="h-8 w-8 text-superlens-richBlue" />,
       technologies: [
-        { name: "REST APIs", logo: "/placeholder.svg" },
-        { name: "GraphQL", logo: "/placeholder.svg" },
-        { name: "SOAP", logo: "/placeholder.svg" },
-        { name: "gRPC", logo: "/placeholder.svg" },
-        { name: "Webhooks", logo: "/placeholder.svg" }
+        { name: "REST APIs", logo: "https://cdn.worldvectorlogo.com/logos/rest-api.svg" },
+        { name: "GraphQL", logo: "https://cdn.worldvectorlogo.com/logos/graphql.svg" },
+        { name: "SOAP", logo: "https://www.svgrepo.com/show/374111/soap.svg" },
+        { name: "gRPC", logo: "https://grpc.io/img/logos/grpc-icon-color.png" },
+        { name: "Webhooks", logo: "https://cdn-icons-png.flaticon.com/512/2621/2621213.png" }
       ]
     },
     {
@@ -47,11 +47,11 @@ const TechStack: React.FC = () => {
       description: "Deploy anywhere - we're cloud agnostic and flexible",
       icon: <Network className="h-8 w-8 text-superlens-richBlue" />,
       technologies: [
-        { name: "AWS", logo: "/placeholder.svg" },
-        { name: "Google Cloud", logo: "/placeholder.svg" },
-        { name: "Microsoft Azure", logo: "/placeholder.svg" },
-        { name: "IBM Cloud", logo: "/placeholder.svg" },
-        { name: "Oracle Cloud", logo: "/placeholder.svg" }
+        { name: "AWS", logo: "https://cdn.worldvectorlogo.com/logos/aws-2.svg" },
+        { name: "Google Cloud", logo: "https://cdn.worldvectorlogo.com/logos/google-cloud-2.svg" },
+        { name: "Microsoft Azure", logo: "https://cdn.worldvectorlogo.com/logos/microsoft-azure-3.svg" },
+        { name: "IBM Cloud", logo: "https://cdn.worldvectorlogo.com/logos/ibm-cloud.svg" },
+        { name: "Oracle Cloud", logo: "https://cdn.worldvectorlogo.com/logos/oracle-cloud-logo.svg" }
       ]
     },
     {
@@ -59,13 +59,22 @@ const TechStack: React.FC = () => {
       description: "Complement your existing analytics investments",
       icon: <Plug className="h-8 w-8 text-superlens-richBlue" />,
       technologies: [
-        { name: "Tableau", logo: "/placeholder.svg" },
-        { name: "Power BI", logo: "/placeholder.svg" },
-        { name: "Looker", logo: "/placeholder.svg" },
-        { name: "Qlik", logo: "/placeholder.svg" },
-        { name: "Domo", logo: "/placeholder.svg" }
+        { name: "Tableau", logo: "https://cdn.worldvectorlogo.com/logos/tableau-software.svg" },
+        { name: "Power BI", logo: "https://cdn.worldvectorlogo.com/logos/power-bi.svg" },
+        { name: "Looker", logo: "https://cdn.worldvectorlogo.com/logos/looker-1.svg" },
+        { name: "Qlik", logo: "https://cdn.worldvectorlogo.com/logos/qlik-1.svg" },
+        { name: "Domo", logo: "https://cdn.worldvectorlogo.com/logos/domo.svg" }
       ]
     }
+  ];
+
+  const additionalLogos = [
+    { name: "Databricks", logo: "https://cdn.worldvectorlogo.com/logos/databricks.svg" },
+    { name: "Splunk", logo: "https://cdn.worldvectorlogo.com/logos/splunk.svg" },
+    { name: "Elastic", logo: "https://cdn.worldvectorlogo.com/logos/elastic-2.svg" },
+    { name: "New Relic", logo: "https://cdn.worldvectorlogo.com/logos/new-relic.svg" },
+    { name: "DataDog", logo: "https://cdn.worldvectorlogo.com/logos/datadog.svg" },
+    { name: "Confluent", logo: "https://cdn.worldvectorlogo.com/logos/confluent.svg" },
   ];
 
   return (
@@ -93,23 +102,20 @@ const TechStack: React.FC = () => {
                       key={techIndex}
                       className="flex flex-col items-center"
                     >
-                      <div className="w-12 h-12 rounded-full overflow-hidden border border-gray-200 mb-1 bg-white flex items-center justify-center">
-                        {tech.logo ? (
-                          <img 
-                            src={tech.logo} 
-                            alt={tech.name}
-                            className="w-8 h-8 object-contain"
-                            onError={(e) => {
-                              const target = e.target as HTMLImageElement;
-                              target.onerror = null;
-                              target.src = "/placeholder.svg";
-                            }}
-                          />
-                        ) : (
-                          <Skeleton className="w-8 h-8 rounded-md" />
-                        )}
+                      <div className="w-12 h-12 rounded-full overflow-hidden border border-gray-200 mb-1 bg-white flex items-center justify-center shadow-sm hover:shadow-md transition-all">
+                        <img 
+                          src={tech.logo} 
+                          alt={tech.name}
+                          className="w-8 h-8 object-contain"
+                          onError={(e) => {
+                            const target = e.target as HTMLImageElement;
+                            target.onerror = null;
+                            target.src = "/placeholder.svg";
+                          }}
+                          loading="lazy"
+                        />
                       </div>
-                      <span className="text-xs text-gray-600">{tech.name}</span>
+                      <span className="text-xs text-gray-600 mt-1 font-medium">{tech.name}</span>
                     </div>
                   ))}
                 </div>
@@ -123,12 +129,22 @@ const TechStack: React.FC = () => {
             And many more integrations available out of the box
           </p>
           <div className="flex flex-wrap justify-center items-center gap-6 mt-6">
-            {Array.from({ length: 6 }).map((_, i) => (
-              <div key={i} className="h-16 w-16 bg-white rounded-full shadow-sm border border-gray-100 flex items-center justify-center overflow-hidden">
+            {additionalLogos.map((logo, i) => (
+              <div 
+                key={i} 
+                className="h-16 w-16 bg-white rounded-full shadow-sm border border-gray-100 flex items-center justify-center overflow-hidden hover:shadow-md transition-all"
+                title={logo.name}
+              >
                 <img 
-                  src="/placeholder.svg"
-                  alt={`Tech Logo ${i+1}`}
+                  src={logo.logo}
+                  alt={`${logo.name} Logo`}
                   className="w-12 h-12 object-contain"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.onerror = null;
+                    target.src = "/placeholder.svg";
+                  }}
+                  loading="lazy"
                 />
               </div>
             ))}
