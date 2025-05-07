@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const CTA: React.FC = () => {
   return (
-    <section className="py-20 gradient-bg relative">
+    <section className="py-20 bg-superlens-richBlue relative">
       <div className="absolute inset-0 hero-gradient"></div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
