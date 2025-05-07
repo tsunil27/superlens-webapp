@@ -1,10 +1,53 @@
 
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Button } from './ui/button';
 import { Link } from 'react-router-dom';
 import { LineChart, BarChart } from 'lucide-react';
+import { ChartContainer } from './ui/chart';
+import { 
+  BarChart as RechartsBarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer
+} from 'recharts';
 
 const Hero: React.FC = () => {
+  const [typedText, setTypedText] = useState("");
+  const [showChart, setShowChart] = useState(false);
+  const [isTyping, setIsTyping] = useState(false);
+  const fullText = "Show me the incremental revenue month on month over the last 6 months?";
+  const typingSpeed = 50;
+  
+  const monthlyData = [
+    { month: 'Jan', revenue: 12500 },
+    { month: 'Feb', revenue: 14700 },
+    { month: 'Mar', revenue: 16800 },
+    { month: 'Apr', revenue: 19200 },
+    { month: 'May', revenue: 21500 },
+    { month: 'Jun', revenue: 24300 },
+  ];
+
+  useEffect(() => {
+    setIsTyping(true);
+    let currentIndex = 0;
+    const interval = setInterval(() => {
+      if (currentIndex < fullText.length) {
+        setTypedText(fullText.substring(0, currentIndex + 1));
+        currentIndex++;
+      } else {
+        clearInterval(interval);
+        setIsTyping(false);
+        setTimeout(() => {
+          setShowChart(true);
+        }, 500);
+      }
+    }, typingSpeed);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="bg-white pt-32 pb-20 relative overflow-hidden">
       <div className="absolute inset-0 hero-gradient"></div>
@@ -56,10 +99,12 @@ const Hero: React.FC = () => {
                   </div>
                 </div>
                 
-                {/* User Message */}
+                {/* User Message with Typing Animation */}
                 <div className="flex items-start justify-end">
                   <div className="bg-superlens-blue rounded-lg p-3 max-w-[80%]">
-                    <p className="text-sm text-white">Show me quarterly revenue trends for the past year</p>
+                    <p className="text-sm text-white">{typedText}
+                      {isTyping && <span className="inline-block w-1.5 h-4 bg-white ml-0.5 animate-pulse"></span>}
+                    </p>
                   </div>
                   <div className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center ml-3 flex-shrink-0">
                     <span className="text-xs font-medium text-gray-700">You</span>
@@ -67,63 +112,73 @@ const Hero: React.FC = () => {
                 </div>
                 
                 {/* AI Response with Visualization */}
-                <div className="flex items-start">
-                  <div className="w-8 h-8 rounded-full bg-superlens-blue/10 flex items-center justify-center mr-3 flex-shrink-0">
-                    <div className="w-4 h-4 rounded-full bg-superlens-blue"></div>
-                  </div>
-                  <div className="bg-gray-100 rounded-lg p-3 max-w-[90%]">
-                    <p className="text-sm text-gray-700 mb-3">Here's the quarterly revenue trend analysis for the past year:</p>
-                    
-                    {/* Visualization Area */}
-                    <div className="bg-white border border-gray-200 rounded-md p-3 mb-3">
-                      <div className="flex justify-between items-center mb-2">
-                        <span className="text-xs font-medium text-gray-500">Revenue Trends (Quarterly)</span>
-                        <div className="flex space-x-2">
-                          <LineChart className="w-4 h-4 text-superlens-blue" />
-                          <BarChart className="w-4 h-4 text-gray-400" />
-                        </div>
-                      </div>
-                      
-                      {/* Chart Visualization */}
-                      <div className="h-40 w-full flex items-end justify-between pt-2 pb-1 px-2">
-                        <div className="flex flex-col items-center">
-                          <div className="bg-superlens-blue w-8 rounded-t-sm" style={{height: '40%'}}></div>
-                          <span className="text-xs mt-1 text-gray-500">Q1</span>
-                        </div>
-                        <div className="flex flex-col items-center">
-                          <div className="bg-superlens-blue w-8 rounded-t-sm" style={{height: '65%'}}></div>
-                          <span className="text-xs mt-1 text-gray-500">Q2</span>
-                        </div>
-                        <div className="flex flex-col items-center">
-                          <div className="bg-superlens-blue w-8 rounded-t-sm" style={{height: '55%'}}></div>
-                          <span className="text-xs mt-1 text-gray-500">Q3</span>
-                        </div>
-                        <div className="flex flex-col items-center">
-                          <div className="bg-superlens-blue w-8 rounded-t-sm" style={{height: '85%'}}></div>
-                          <span className="text-xs mt-1 text-gray-500">Q4</span>
-                        </div>
-                      </div>
-                      
-                      {/* Metrics Row */}
-                      <div className="grid grid-cols-3 gap-2 mt-3 border-t border-gray-100 pt-2">
-                        <div className="text-center">
-                          <p className="text-xs text-gray-500">YoY Growth</p>
-                          <p className="text-sm font-medium text-superlens-textBlue">+24%</p>
-                        </div>
-                        <div className="text-center border-x border-gray-100">
-                          <p className="text-xs text-gray-500">Best Quarter</p>
-                          <p className="text-sm font-medium text-superlens-textBlue">Q4</p>
-                        </div>
-                        <div className="text-center">
-                          <p className="text-xs text-gray-500">Projection</p>
-                          <p className="text-sm font-medium text-green-600">↑ 18%</p>
-                        </div>
-                      </div>
+                {showChart && (
+                  <div className="flex items-start animate-fade-in">
+                    <div className="w-8 h-8 rounded-full bg-superlens-blue/10 flex items-center justify-center mr-3 flex-shrink-0">
+                      <div className="w-4 h-4 rounded-full bg-superlens-blue"></div>
                     </div>
-                    
-                    <p className="text-sm text-gray-700">Is there any specific aspect of this data you'd like me to analyze further?</p>
+                    <div className="bg-gray-100 rounded-lg p-3 max-w-[90%] w-full">
+                      <p className="text-sm text-gray-700 mb-3">Here's the incremental revenue month on month over the last 6 months:</p>
+                      
+                      {/* Visualization Area */}
+                      <div className="bg-white border border-gray-200 rounded-md p-3 mb-3">
+                        <div className="flex justify-between items-center mb-2">
+                          <span className="text-xs font-medium text-gray-500">Monthly Revenue (Last 6 Months)</span>
+                          <div className="flex space-x-2">
+                            <LineChart className="w-4 h-4 text-gray-400" />
+                            <BarChart className="w-4 h-4 text-superlens-blue" />
+                          </div>
+                        </div>
+                        
+                        {/* Dynamic Bar Chart */}
+                        <div className="h-48 w-full">
+                          <ResponsiveContainer width="100%" height="100%">
+                            <RechartsBarChart
+                              data={monthlyData}
+                              margin={{ top: 5, right: 10, left: 10, bottom: 5 }}
+                            >
+                              <XAxis dataKey="month" tick={{ fontSize: 12 }} />
+                              <YAxis
+                                tickFormatter={(value) => `$${value/1000}k`}
+                                tick={{ fontSize: 12 }}
+                                width={40}
+                              />
+                              <Tooltip
+                                formatter={(value) => [`$${Number(value).toLocaleString()}`, 'Revenue']}
+                                labelFormatter={(label) => `Month: ${label}`}
+                              />
+                              <Bar 
+                                dataKey="revenue" 
+                                fill="#0056b3" 
+                                animationDuration={2000}
+                                animationBegin={300}
+                                radius={[4, 4, 0, 0]} 
+                              />
+                            </RechartsBarChart>
+                          </ResponsiveContainer>
+                        </div>
+                        
+                        {/* Metrics Row */}
+                        <div className="grid grid-cols-3 gap-2 mt-3 border-t border-gray-100 pt-2">
+                          <div className="text-center">
+                            <p className="text-xs text-gray-500">Overall Growth</p>
+                            <p className="text-sm font-medium text-superlens-textBlue">+94.4%</p>
+                          </div>
+                          <div className="text-center border-x border-gray-100">
+                            <p className="text-xs text-gray-500">Avg. Monthly Growth</p>
+                            <p className="text-sm font-medium text-superlens-textBlue">+14.2%</p>
+                          </div>
+                          <div className="text-center">
+                            <p className="text-xs text-gray-500">Projection Next Month</p>
+                            <p className="text-sm font-medium text-green-600">↑ $27.1k</p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <p className="text-sm text-gray-700">The data shows consistent revenue growth over the past 6 months. Would you like me to analyze specific growth factors or compare to previous periods?</p>
+                    </div>
                   </div>
-                </div>
+                )}
                 
                 {/* Message Input */}
                 <div className="mt-2 border-t border-gray-100 pt-3 pb-1">
