@@ -34,7 +34,7 @@ const Hero: React.FC = () => {
     let currentIndex = 0;
     const interval = setInterval(() => {
       if (currentIndex < fullText.length) {
-        setTypedText(fullText.substring(0, currentIndex + 1));
+        setTypedText(prev => prev + fullText.charAt(currentIndex));
         currentIndex++;
       } else {
         clearInterval(interval);
