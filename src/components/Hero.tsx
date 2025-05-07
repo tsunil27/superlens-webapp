@@ -18,12 +18,16 @@ import {
   Cell,
   Legend
 } from 'recharts';
+import { Input } from './ui/input';
 
 const Hero: React.FC = () => {
   const [activeQueryIndex, setActiveQueryIndex] = useState(0);
   const [typedText, setTypedText] = useState("");
   const [showChart, setShowChart] = useState(false);
   const [isTyping, setIsTyping] = useState(false);
+  const [userInput, setUserInput] = useState("");
+  const [isAutoTyping, setIsAutoTyping] = useState(true);
+  const inputRef = useRef<HTMLInputElement>(null);
   
   // Define all queries and their corresponding data
   const queries = [
@@ -84,8 +88,43 @@ const Hero: React.FC = () => {
   const displayDuration = 6000; // 6 seconds for each query/chart
   const transitionDuration = 1000; // 1 second for transitions
 
-  // Reset and start typing the next query
+  // Handle manual typing
+  const handleUserInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setUserInput(value);
+    
+    if (isAutoTyping) {
+      // If auto-typing is in progress, disable it and start manual mode
+      setIsAutoTyping(false);
+      setTypedText(value);
+    } else {
+      setTypedText(value);
+    }
+  };
+
+  const handleInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    // When user presses Enter, show the chart for their query
+    if (e.key === 'Enter' && userInput.trim() !== '') {
+      setIsTyping(false);
+      setShowChart(true);
+      
+      // Reset after some time to continue the demo loop
+      setTimeout(() => {
+        setUserInput("");
+        setTypedText("");
+        setShowChart(false);
+        setIsAutoTyping(true);
+        setActiveQueryIndex((prevIndex) => (prevIndex + 1) % queries.length);
+      }, displayDuration);
+      
+      e.preventDefault();
+    }
+  };
+
+  // Reset and start typing the next query in auto mode
   useEffect(() => {
+    if (!isAutoTyping) return; // Skip if manual mode is active
+    
     const setupNextQuery = () => {
       setTypedText("");
       setShowChart(false);
@@ -93,6 +132,7 @@ const Hero: React.FC = () => {
       
       let currentIndex = 0;
       const currentQuery = queries[activeQueryIndex].text;
+      setUserInput(currentQuery); // Set the complete query in the input field
       
       const interval = setInterval(() => {
         if (currentIndex < currentQuery.length) {
@@ -106,6 +146,7 @@ const Hero: React.FC = () => {
             
             // Set timer for next query
             setTimeout(() => {
+              setUserInput("");
               setActiveQueryIndex((prevIndex) => (prevIndex + 1) % queries.length);
             }, displayDuration);
             
@@ -117,7 +158,14 @@ const Hero: React.FC = () => {
     };
     
     setupNextQuery();
-  }, [activeQueryIndex]);
+  }, [activeQueryIndex, isAutoTyping]);
+
+  // Focus the input when clicked
+  const focusInput = () => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  };
 
   // Render the appropriate chart based on the active query
   const renderActiveChart = () => {
@@ -351,12 +399,15 @@ const Hero: React.FC = () => {
                 
                 {/* Message Input */}
                 <div className="mt-2 border-t border-gray-100 pt-3 pb-1">
-                  <div className="flex items-center border border-gray-200 rounded-full bg-white px-4 py-2">
-                    <input 
+                  <div className="flex items-center border border-gray-200 rounded-full bg-white px-4 py-2" onClick={focusInput}>
+                    <Input 
                       type="text" 
                       placeholder="Ask SuperLens about your data..." 
                       className="flex-1 text-sm border-none outline-none focus:ring-0 bg-transparent"
-                      readOnly 
+                      value={userInput}
+                      onChange={handleUserInput}
+                      onKeyDown={handleInputKeyDown}
+                      ref={inputRef}
                     />
                     <button className="bg-superlens-blue text-white rounded-full w-6 h-6 flex items-center justify-center ml-2">
                       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor">
