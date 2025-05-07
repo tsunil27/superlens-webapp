@@ -2,6 +2,7 @@
 import React from 'react';
 import { Card, CardContent } from './ui/card';
 import { Database, Server, Link, Network, Plug } from 'lucide-react';
+import { Skeleton } from './ui/skeleton';
 
 const TechStack: React.FC = () => {
   const techCategories = [
@@ -10,11 +11,11 @@ const TechStack: React.FC = () => {
       description: "Connect to your existing data warehouses and lakes with minimal setup",
       icon: <Database className="h-8 w-8 text-superlens-richBlue" />,
       technologies: [
-        { name: "Snowflake", logo: "https://source.unsplash.com/photo-1488590528505-98d2b5aba04b?w=64&h=64&fit=crop&auto=format" },
-        { name: "AWS Redshift", logo: "https://source.unsplash.com/photo-1461749280684-dccba630e2f6?w=64&h=64&fit=crop&auto=format" },
-        { name: "Google BigQuery", logo: "https://source.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=64&h=64&fit=crop&auto=format" },
-        { name: "Azure Synapse", logo: "https://source.unsplash.com/photo-1531297484001-80022131f5a1?w=64&h=64&fit=crop&auto=format" },
-        { name: "MongoDB", logo: "https://source.unsplash.com/photo-1498050108023-c5249f4df085?w=64&h=64&fit=crop&auto=format" }
+        { name: "Snowflake", logo: "/placeholder.svg" },
+        { name: "AWS Redshift", logo: "/placeholder.svg" },
+        { name: "Google BigQuery", logo: "/placeholder.svg" },
+        { name: "Azure Synapse", logo: "/placeholder.svg" },
+        { name: "MongoDB", logo: "/placeholder.svg" }
       ]
     },
     {
@@ -22,11 +23,11 @@ const TechStack: React.FC = () => {
       description: "Integrate with your current enterprise software ecosystem",
       icon: <Server className="h-8 w-8 text-superlens-richBlue" />,
       technologies: [
-        { name: "Salesforce", logo: "https://source.unsplash.com/photo-1488590528505-98d2b5aba04b?w=64&h=64&fit=crop&auto=format" },
-        { name: "SAP", logo: "https://source.unsplash.com/photo-1461749280684-dccba630e2f6?w=64&h=64&fit=crop&auto=format" },
-        { name: "Oracle", logo: "https://source.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=64&h=64&fit=crop&auto=format" },
-        { name: "Microsoft 365", logo: "https://source.unsplash.com/photo-1531297484001-80022131f5a1?w=64&h=64&fit=crop&auto=format" },
-        { name: "Workday", logo: "https://source.unsplash.com/photo-1498050108023-c5249f4df085?w=64&h=64&fit=crop&auto=format" }
+        { name: "Salesforce", logo: "/placeholder.svg" },
+        { name: "SAP", logo: "/placeholder.svg" },
+        { name: "Oracle", logo: "/placeholder.svg" },
+        { name: "Microsoft 365", logo: "/placeholder.svg" },
+        { name: "Workday", logo: "/placeholder.svg" }
       ]
     },
     {
@@ -34,11 +35,11 @@ const TechStack: React.FC = () => {
       description: "Leverage your existing APIs and microservices architecture",
       icon: <Link className="h-8 w-8 text-superlens-richBlue" />,
       technologies: [
-        { name: "REST APIs", logo: "https://source.unsplash.com/photo-1488590528505-98d2b5aba04b?w=64&h=64&fit=crop&auto=format" },
-        { name: "GraphQL", logo: "https://source.unsplash.com/photo-1461749280684-dccba630e2f6?w=64&h=64&fit=crop&auto=format" },
-        { name: "SOAP", logo: "https://source.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=64&h=64&fit=crop&auto=format" },
-        { name: "gRPC", logo: "https://source.unsplash.com/photo-1531297484001-80022131f5a1?w=64&h=64&fit=crop&auto=format" },
-        { name: "Webhooks", logo: "https://source.unsplash.com/photo-1498050108023-c5249f4df085?w=64&h=64&fit=crop&auto=format" }
+        { name: "REST APIs", logo: "/placeholder.svg" },
+        { name: "GraphQL", logo: "/placeholder.svg" },
+        { name: "SOAP", logo: "/placeholder.svg" },
+        { name: "gRPC", logo: "/placeholder.svg" },
+        { name: "Webhooks", logo: "/placeholder.svg" }
       ]
     },
     {
@@ -46,11 +47,11 @@ const TechStack: React.FC = () => {
       description: "Deploy anywhere - we're cloud agnostic and flexible",
       icon: <Network className="h-8 w-8 text-superlens-richBlue" />,
       technologies: [
-        { name: "AWS", logo: "https://source.unsplash.com/photo-1488590528505-98d2b5aba04b?w=64&h=64&fit=crop&auto=format" },
-        { name: "Google Cloud", logo: "https://source.unsplash.com/photo-1461749280684-dccba630e2f6?w=64&h=64&fit=crop&auto=format" },
-        { name: "Microsoft Azure", logo: "https://source.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=64&h=64&fit=crop&auto=format" },
-        { name: "IBM Cloud", logo: "https://source.unsplash.com/photo-1531297484001-80022131f5a1?w=64&h=64&fit=crop&auto=format" },
-        { name: "Oracle Cloud", logo: "https://source.unsplash.com/photo-1498050108023-c5249f4df085?w=64&h=64&fit=crop&auto=format" }
+        { name: "AWS", logo: "/placeholder.svg" },
+        { name: "Google Cloud", logo: "/placeholder.svg" },
+        { name: "Microsoft Azure", logo: "/placeholder.svg" },
+        { name: "IBM Cloud", logo: "/placeholder.svg" },
+        { name: "Oracle Cloud", logo: "/placeholder.svg" }
       ]
     },
     {
@@ -58,11 +59,11 @@ const TechStack: React.FC = () => {
       description: "Complement your existing analytics investments",
       icon: <Plug className="h-8 w-8 text-superlens-richBlue" />,
       technologies: [
-        { name: "Tableau", logo: "https://source.unsplash.com/photo-1488590528505-98d2b5aba04b?w=64&h=64&fit=crop&auto=format" },
-        { name: "Power BI", logo: "https://source.unsplash.com/photo-1461749280684-dccba630e2f6?w=64&h=64&fit=crop&auto=format" },
-        { name: "Looker", logo: "https://source.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=64&h=64&fit=crop&auto=format" },
-        { name: "Qlik", logo: "https://source.unsplash.com/photo-1531297484001-80022131f5a1?w=64&h=64&fit=crop&auto=format" },
-        { name: "Domo", logo: "https://source.unsplash.com/photo-1498050108023-c5249f4df085?w=64&h=64&fit=crop&auto=format" }
+        { name: "Tableau", logo: "/placeholder.svg" },
+        { name: "Power BI", logo: "/placeholder.svg" },
+        { name: "Looker", logo: "/placeholder.svg" },
+        { name: "Qlik", logo: "/placeholder.svg" },
+        { name: "Domo", logo: "/placeholder.svg" }
       ]
     }
   ];
@@ -92,12 +93,21 @@ const TechStack: React.FC = () => {
                       key={techIndex}
                       className="flex flex-col items-center"
                     >
-                      <div className="w-12 h-12 rounded-full overflow-hidden border border-gray-200 mb-1">
-                        <img 
-                          src={tech.logo} 
-                          alt={tech.name}
-                          className="w-full h-full object-cover"
-                        />
+                      <div className="w-12 h-12 rounded-full overflow-hidden border border-gray-200 mb-1 bg-white flex items-center justify-center">
+                        {tech.logo ? (
+                          <img 
+                            src={tech.logo} 
+                            alt={tech.name}
+                            className="w-8 h-8 object-contain"
+                            onError={(e) => {
+                              const target = e.target as HTMLImageElement;
+                              target.onerror = null;
+                              target.src = "/placeholder.svg";
+                            }}
+                          />
+                        ) : (
+                          <Skeleton className="w-8 h-8 rounded-md" />
+                        )}
                       </div>
                       <span className="text-xs text-gray-600">{tech.name}</span>
                     </div>
@@ -116,9 +126,9 @@ const TechStack: React.FC = () => {
             {Array.from({ length: 6 }).map((_, i) => (
               <div key={i} className="h-16 w-16 bg-white rounded-full shadow-sm border border-gray-100 flex items-center justify-center overflow-hidden">
                 <img 
-                  src={`https://source.unsplash.com/photo-148${i}312338219-ce68d2c6f44d?w=64&h=64&fit=crop&auto=format`}
+                  src="/placeholder.svg"
                   alt={`Tech Logo ${i+1}`}
-                  className="w-12 h-12 object-cover"
+                  className="w-12 h-12 object-contain"
                 />
               </div>
             ))}
