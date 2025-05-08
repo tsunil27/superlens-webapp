@@ -1,64 +1,123 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from './ui/button';
 import { Link } from 'react-router-dom';
-import { Check } from 'lucide-react';
+import { Check, X } from 'lucide-react';
+import { 
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow
+} from './ui/table';
+import { Card, CardContent } from './ui/card';
 
 const Pricing: React.FC = () => {
-  const plans = [
+  const [billingCycle, setBillingCycle] = useState<'monthly' | 'annual'>('monthly');
+  
+  // Pricing table data from the image
+  const features = [
     {
-      name: "Team",
-      price: "$35",
-      period: "per user/month",
-      description: "Perfect for small teams getting started with analytics",
-      features: [
-        "Up to 10 users",
-        "10GB data storage",
-        "Natural language queries",
-        "Basic visualizations",
-        "Standard support",
-        "1 year data history"
-      ],
-      cta: "Start Free Trial",
-      popular: false
+      name: "Conversational Insights",
+      basic: true,
+      pro: true,
+      enterprise: true,
+      basicNote: "",
+      proNote: "",
+      enterpriseNote: ""
     },
     {
-      name: "Business",
-      price: "$75",
-      period: "per user/month",
-      description: "For growing companies with advanced analytics needs",
-      features: [
-        "Unlimited users",
-        "50GB data storage",
-        "Advanced AI insights",
-        "Custom dashboards",
-        "Priority support",
-        "3 years data history",
-        "Data governance"
-      ],
+      name: "Domain-Specific NLU (Media/Sports/Gaming)",
+      basic: true,
+      pro: true,
+      enterprise: true,
+      basicNote: "(limited)",
+      proNote: "(all domains)",
+      enterpriseNote: "(custom tuning)"
+    },
+    {
+      name: "Data Source Integration",
+      basic: "Up to 1 source (CSV/API)",
+      pro: "All Data Connectors",
+      enterprise: "All Data Connectors + Custom Integrations"
+    },
+    {
+      name: "Metrics & Dimensions Coverage",
+      basic: "Core KPIs",
+      pro: "Advanced KPIs + custom metrics",
+      enterprise: "Fully customisable"
+    },
+    {
+      name: "Data Storytelling Engine",
+      basic: "Standard visuals",
+      pro: "Custom Dashboards",
+      enterprise: "Interactive dashboards + action prompts"
+    },
+    {
+      name: "Clarification Dialogue Engine",
+      basic: "Basic clarifications",
+      pro: "Smart follow-ups",
+      enterprise: "Domain-aware dialogue handling"
+    },
+    {
+      name: "Time-based Analytics",
+      basic: "Last 30/90 days",
+      pro: "Any time frame selection",
+      enterprise: "Time series + cohort support"
+    },
+    {
+      name: "User Access",
+      basic: "Upto 5 users",
+      pro: "Up to 15 users",
+      enterprise: "Unlimited users (role-based)"
+    },
+    {
+      name: "Support",
+      basic: "Email support",
+      pro: "Priority (email + chat)",
+      enterprise: "Dedicated CSM + SLA guarantees"
+    },
+    {
+      name: "Custom Branding",
+      basic: false,
+      pro: false,
+      enterprise: true,
+      enterpriseNote: "(white-labeled experience)"
+    }
+  ];
+  
+  // Plan summary data
+  const plans = [
+    {
+      name: "Basic",
+      price: "£99",
+      description: "For small teams getting started with AI analytics",
+      note: "(1-month Free-Trial)",
+      popular: false,
       cta: "Start Free Trial",
-      popular: true
+      link: "/free-trial"
+    },
+    {
+      name: "Pro",
+      price: "£199",
+      description: "For growing companies with advanced analytics needs",
+      note: "",
+      popular: true,
+      cta: "Start Free Trial",
+      link: "/free-trial"
     },
     {
       name: "Enterprise",
-      price: "Custom",
-      period: "tailored pricing",
-      description: "For large organizations with complex requirements",
-      features: [
-        "Unlimited everything",
-        "Dedicated instance",
-        "White labeling",
-        "24/7 dedicated support",
-        "Custom integrations",
-        "Unlimited history",
-        "Advanced security features",
-        "On-premise option"
-      ],
+      price: "Custom Pricing",
+      description: "For organizations with complex requirements",
+      note: "",
+      popular: false,
       cta: "Contact Sales",
-      popular: false
+      link: "/book-demo"
     }
   ];
-
+  
   return (
     <section id="pricing" className="py-20 bg-white">
       <div className="container mx-auto px-4">
@@ -68,12 +127,13 @@ const Pricing: React.FC = () => {
             Choose the plan that works for your business. All plans include a 14-day free trial.
           </p>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        
+        {/* Plan cards summary */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-16">
           {plans.map((plan, index) => (
-            <div 
+            <Card 
               key={index} 
-              className={`border rounded-xl overflow-hidden transition-all duration-300 ${
+              className={`overflow-hidden transition-all duration-300 ${
                 plan.popular 
                   ? 'shadow-xl border-superlens-blue transform -translate-y-2' 
                   : 'shadow-sm border-gray-200 hover:shadow-md'
@@ -84,14 +144,14 @@ const Pricing: React.FC = () => {
                   Most Popular
                 </div>
               )}
-              <div className="p-8">
+              <CardContent className="p-8">
                 <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
                 <div className="flex items-end mb-4">
                   <span className="text-4xl font-bold">{plan.price}</span>
-                  <span className="text-gray-500 ml-1">{plan.period}</span>
+                  {plan.note && <span className="text-gray-500 text-sm ml-2">{plan.note}</span>}
                 </div>
                 <p className="text-gray-600 mb-6">{plan.description}</p>
-                <Link to={plan.name === "Enterprise" ? "/contact" : "/free-trial"}>
+                <Link to={plan.link}>
                   <Button 
                     className={`w-full ${
                       plan.popular 
@@ -103,17 +163,109 @@ const Pricing: React.FC = () => {
                     {plan.cta}
                   </Button>
                 </Link>
-                <div className="mt-8 space-y-4">
-                  {plan.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-center">
-                      <Check className="h-5 w-5 text-superlens-blue mr-2 flex-shrink-0" />
-                      <span className="text-gray-700 text-sm">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+              </CardContent>
+            </Card>
           ))}
+        </div>
+        
+        {/* Comparison table */}
+        <div className="max-w-6xl mx-auto overflow-x-auto">
+          <Table className="border-collapse">
+            <TableHeader className="bg-gray-50">
+              <TableRow>
+                <TableHead className="w-1/4 py-4 px-6 text-left font-bold text-gray-800">Feature</TableHead>
+                <TableHead className="w-1/4 py-4 px-6 text-left font-bold text-gray-800">Basic</TableHead>
+                <TableHead className="w-1/4 py-4 px-6 text-left font-bold text-gray-800">Pro</TableHead>
+                <TableHead className="w-1/4 py-4 px-6 text-left font-bold text-gray-800">Enterprise</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {features.map((feature, index) => (
+                <TableRow key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                  <TableCell className="py-4 px-6 border-t border-gray-200 font-medium">
+                    {feature.name}
+                  </TableCell>
+                  <TableCell className="py-4 px-6 border-t border-gray-200">
+                    {typeof feature.basic === 'boolean' ? (
+                      feature.basic ? (
+                        <div className="flex items-center">
+                          <Check className="h-5 w-5 text-green-500 mr-1" />
+                          {feature.basicNote && <span className="text-sm text-gray-600">{feature.basicNote}</span>}
+                        </div>
+                      ) : (
+                        <X className="h-5 w-5 text-red-500" />
+                      )
+                    ) : (
+                      <span className="text-sm">{feature.basic}</span>
+                    )}
+                  </TableCell>
+                  <TableCell className="py-4 px-6 border-t border-gray-200">
+                    {typeof feature.pro === 'boolean' ? (
+                      feature.pro ? (
+                        <div className="flex items-center">
+                          <Check className="h-5 w-5 text-green-500 mr-1" />
+                          {feature.proNote && <span className="text-sm text-gray-600">{feature.proNote}</span>}
+                        </div>
+                      ) : (
+                        <X className="h-5 w-5 text-red-500" />
+                      )
+                    ) : (
+                      <span className="text-sm">{feature.pro}</span>
+                    )}
+                  </TableCell>
+                  <TableCell className="py-4 px-6 border-t border-gray-200">
+                    {typeof feature.enterprise === 'boolean' ? (
+                      feature.enterprise ? (
+                        <div className="flex items-center">
+                          <Check className="h-5 w-5 text-green-500 mr-1" />
+                          {feature.enterpriseNote && <span className="text-sm text-gray-600">{feature.enterpriseNote}</span>}
+                        </div>
+                      ) : (
+                        <X className="h-5 w-5 text-red-500" />
+                      )
+                    ) : (
+                      <span className="text-sm">{feature.enterprise}</span>
+                    )}
+                  </TableCell>
+                </TableRow>
+              ))}
+              <TableRow>
+                <TableCell className="py-4 px-6 border-t border-gray-200 font-bold">
+                  Monthly Pricing (ballpark est.)
+                </TableCell>
+                <TableCell className="py-4 px-6 border-t border-gray-200 text-lg font-semibold">
+                  £99
+                  <div className="text-sm font-normal text-gray-500">(1-month Free-Trial)</div>
+                </TableCell>
+                <TableCell className="py-4 px-6 border-t border-gray-200 text-lg font-semibold">
+                  £199
+                </TableCell>
+                <TableCell className="py-4 px-6 border-t border-gray-200 text-lg font-semibold">
+                  Custom Pricing
+                </TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
+        </div>
+        
+        {/* CTA section */}
+        <div className="mt-16 text-center">
+          <h3 className="text-2xl font-bold mb-4">Need help choosing the right plan?</h3>
+          <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
+            Our team is ready to help you find the perfect solution for your business needs.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <Link to="/book-demo">
+              <Button size="lg" className="bg-superlens-blue hover:bg-superlens-darkBlue">
+                Book a Demo
+              </Button>
+            </Link>
+            <Link to="/contact">
+              <Button size="lg" variant="outline">
+                Contact Sales
+              </Button>
+            </Link>
+          </div>
         </div>
       </div>
     </section>

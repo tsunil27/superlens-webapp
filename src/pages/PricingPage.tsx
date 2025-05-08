@@ -3,6 +3,7 @@ import React from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import Pricing from '@/components/Pricing';
+import CTA from '@/components/CTA';
 
 const PricingPage = () => {
   return (
@@ -18,6 +19,7 @@ const PricingPage = () => {
         </div>
         <Pricing />
       </main>
+      <CTA />
       <Footer />
     </div>
   );
