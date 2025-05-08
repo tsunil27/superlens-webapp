@@ -4,10 +4,10 @@ import { Card } from './ui/card';
 import VideoCarousel from './VideoCarousel';
 
 const WhatIsSuperLens: React.FC = () => {
-  // Array of image paths for the carousel - updating with the new image
+  // Array of image paths for the carousel - updating with the new problem image
   const carouselImages = [
     "/lovable-uploads/c7970a74-16b5-4d94-8a61-382c7e9729e2.png", // SuperLens is your personal AI data analyst
-    "/lovable-uploads/c7d508be-61b3-4747-b60e-2ca1463b3e06.png", // Problem statement 
+    "/lovable-uploads/43ee9f11-298b-43b4-a0c5-3a0e868f595b.png", // New Problem image
     "/lovable-uploads/735f7395-0365-4edc-9f69-7592cefa17f1.png", // To democratize advanced data analytics
     "/lovable-uploads/d655969d-dd9a-42b9-b884-b0b2fa3d0db6.png"  // New NLU stack image
   ];
