@@ -2,6 +2,7 @@
 import React from 'react';
 import { Button } from './ui/button';
 import { Link } from 'react-router-dom';
+import { Brain, Film, Football, Joystick, ShoppingCart } from 'lucide-react';
 
 const Solutions: React.FC = () => {
   const solutions = [
@@ -9,35 +10,35 @@ const Solutions: React.FC = () => {
       industry: "Software & Tech",
       title: "Optimize product development with data-driven insights",
       description: "Make informed decisions about your product roadmap, user experience, and technical architecture.",
-      image: "https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      icon: Brain,
       link: "/solutions/software-tech"
     },
     {
       industry: "Media Entertainment",
       title: "Transform content delivery with AI-driven analytics",
       description: "Understand viewer preferences, optimize content strategies, and increase audience engagement.",
-      image: "https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      icon: Film,
       link: "/solutions/media-entertainment"
     },
     {
       industry: "Sports Streaming",
       title: "Enhance fan experiences through data intelligence",
       description: "Deliver personalized content, optimize streaming quality, and monetize viewer engagement.",
-      image: "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      icon: Football,
       link: "/solutions/sports-streaming"
     },
     {
       industry: "Gaming",
       title: "Level up your gaming platform with player insights",
       description: "Optimize game design, increase player retention, and create personalized gaming experiences.",
-      image: "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      icon: Joystick,
       link: "/solutions/gaming"
     },
     {
       industry: "Retail & eCommerce",
       title: "Revolutionize shopping experiences with data analytics",
       description: "Personalize customer journeys, optimize inventory, and drive conversion with actionable insights.",
-      image: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      icon: ShoppingCart,
       link: "/solutions/retail-ecommerce"
     }
   ];
@@ -63,11 +64,9 @@ const Solutions: React.FC = () => {
               <div className="lg:w-1/2">
                 <div className="relative">
                   <div className="absolute -inset-1 bg-gradient-to-r from-superlens-richBlue to-superlens-blue rounded-lg opacity-30 blur-sm"></div>
-                  <img 
-                    src={solution.image} 
-                    alt={solution.industry} 
-                    className="rounded-lg shadow-lg relative w-full h-64 md:h-80 object-cover"
-                  />
+                  <div className="bg-white p-8 rounded-lg shadow-lg relative w-full h-64 md:h-80 flex items-center justify-center">
+                    <solution.icon className="w-24 h-24 text-superlens-blue" />
+                  </div>
                 </div>
               </div>
               <div className="lg:w-1/2">
