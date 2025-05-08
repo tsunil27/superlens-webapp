@@ -4,12 +4,13 @@ import { Card } from './ui/card';
 import VideoCarousel from './VideoCarousel';
 
 const WhatIsSuperLens: React.FC = () => {
-  // Array of image paths for the carousel
+  // Array of image paths for the carousel - using the user's uploaded images
   const carouselImages = [
-    "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3",
-    "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3",
-    "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3",
-    "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3"
+    "/lovable-uploads/59e45b98-2f23-4d86-b599-cb6283a28e44.png",
+    "/lovable-uploads/e6c5fbb9-5190-4375-8b09-935b3be6a604.png",
+    "/lovable-uploads/eb7991e4-c439-4e38-bce0-d3bcdbf80f42.png",
+    // Since we only have 3 uploaded images available, we'll use one again to make 4 total
+    "/lovable-uploads/59e45b98-2f23-4d86-b599-cb6283a28e44.png"
   ];
 
   return (
