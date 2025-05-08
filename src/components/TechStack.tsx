@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent } from './ui/card';
 import { Database, Server, Link, Network, Plug, Cloud } from 'lucide-react';
@@ -11,9 +10,9 @@ const TechStack: React.FC = () => {
       icon: <Database className="h-8 w-8 text-superlens-richBlue" />,
       technologies: [
         { name: "Snowflake", logo: "https://upload.wikimedia.org/wikipedia/commons/f/ff/Snowflake_Logo.svg" },
-        { name: "AWS Redshift", logo: "aws-redshift", isLucideIcon: true },
+        { name: "AWS Redshift", logo: "https://cdn.worldvectorlogo.com/logos/aws-redshift.svg", isCustomIcon: true },
         { name: "Google BigQuery", logo: "https://cdn.worldvectorlogo.com/logos/google-bigquery-logo-1.svg" },
-        { name: "Azure Synapse", logo: "azure-synapse", isLucideIcon: true },
+        { name: "Azure Synapse", logo: "https://cdn.worldvectorlogo.com/logos/azure-synapse-analytics.svg", isCustomIcon: true },
         { name: "MongoDB", logo: "https://cdn.worldvectorlogo.com/logos/mongodb-icon-1.svg" }
       ]
     },
@@ -26,7 +25,7 @@ const TechStack: React.FC = () => {
         { name: "SAP", logo: "https://cdn.worldvectorlogo.com/logos/sap-3.svg" },
         { name: "Oracle", logo: "https://cdn.worldvectorlogo.com/logos/oracle-6.svg" },
         { name: "Microsoft 365", logo: "https://cdn.worldvectorlogo.com/logos/office-365-1.svg" },
-        { name: "Workday", logo: "workday", isLucideIcon: true }
+        { name: "Workday", logo: "https://cdn.worldvectorlogo.com/logos/workday-logo.svg", isCustomIcon: true }
       ]
     },
     {
@@ -34,9 +33,9 @@ const TechStack: React.FC = () => {
       description: "Leverage your existing APIs and microservices architecture",
       icon: <Link className="h-8 w-8 text-superlens-richBlue" />,
       technologies: [
-        { name: "REST APIs", logo: "rest-apis", isLucideIcon: true },
-        { name: "GraphQL", logo: "graphql", isLucideIcon: true },
-        { name: "SOAP", logo: "soap", isLucideIcon: true },
+        { name: "REST APIs", logo: "https://cdn.worldvectorlogo.com/logos/rest-api.svg", isCustomIcon: true },
+        { name: "GraphQL", logo: "https://cdn.worldvectorlogo.com/logos/graphql.svg", isCustomIcon: true },
+        { name: "SOAP", logo: "https://cdn.worldvectorlogo.com/logos/soap.svg", isCustomIcon: true },
         { name: "gRPC", logo: "https://grpc.io/img/logos/grpc-icon-color.png" },
         { name: "Webhooks", logo: "https://cdn-icons-png.flaticon.com/512/2621/2621213.png" }
       ]
@@ -49,7 +48,7 @@ const TechStack: React.FC = () => {
         { name: "AWS", logo: "https://cdn.worldvectorlogo.com/logos/aws-2.svg" },
         { name: "Google Cloud", logo: "https://cdn.worldvectorlogo.com/logos/google-cloud-2.svg" },
         { name: "Microsoft Azure", logo: "https://cdn.worldvectorlogo.com/logos/microsoft-azure-3.svg" },
-        { name: "Alibaba Cloud", logo: "alibaba-cloud", isLucideIcon: true },
+        { name: "Alibaba Cloud", logo: "https://cdn.worldvectorlogo.com/logos/alibaba-cloud.svg", isCustomIcon: true },
         { name: "Digital Ocean", logo: "https://cdn.worldvectorlogo.com/logos/digitalocean.svg" }
       ]
     },
@@ -76,9 +75,9 @@ const TechStack: React.FC = () => {
     { name: "Confluent", logo: "https://cdn.worldvectorlogo.com/logos/confluent.svg" },
   ];
 
-  const renderTechLogo = (tech: { name: string; logo: string; isLucideIcon?: boolean }) => {
+  const renderTechLogo = (tech: { name: string; logo: string; isLucideIcon?: boolean; isCustomIcon?: boolean }) => {
     if (tech.isLucideIcon) {
-      // For Lucide icons
+      // For Lucide icons - keeping the fallback
       switch (tech.logo) {
         case "aws-redshift":
           return <Cloud className="w-8 h-8 text-superlens-richBlue" />;
