@@ -84,4 +84,14 @@
   .bg-muted-blue {
     background-color: #e8f4fa;
   }
+  
+  /* Image carousel animation */
+  @keyframes carousel {
+    0%, 100% { opacity: 1; }
+    33%, 66% { opacity: 0.6; }
+  }
+  
+  .animate-carousel {
+    animation: carousel 10s infinite ease-in-out;
+  }
 }

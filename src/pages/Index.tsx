@@ -2,6 +2,8 @@
 import React from 'react';
 import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
+import WhatIsSuperLens from '@/components/WhatIsSuperLens';
+import HowSuperLensIsDifferent from '@/components/HowSuperLensIsDifferent';
 import Features from '@/components/Features';
 import TechStack from '@/components/TechStack';
 import Solutions from '@/components/Solutions';
@@ -16,6 +18,8 @@ const Index = () => {
       <div>
         <main>
           <Hero />
+          <WhatIsSuperLens />
+          <HowSuperLensIsDifferent />
           <Features />
           <TechStack />
           <Solutions />
