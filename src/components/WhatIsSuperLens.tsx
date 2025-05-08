@@ -4,13 +4,12 @@ import { Card } from './ui/card';
 import VideoCarousel from './VideoCarousel';
 
 const WhatIsSuperLens: React.FC = () => {
-  // Array of image paths for the carousel - using the user's uploaded images
+  // Array of image paths for the carousel - using the user's newly uploaded images
   const carouselImages = [
-    "/lovable-uploads/59e45b98-2f23-4d86-b599-cb6283a28e44.png",
-    "/lovable-uploads/e6c5fbb9-5190-4375-8b09-935b3be6a604.png",
-    "/lovable-uploads/eb7991e4-c439-4e38-bce0-d3bcdbf80f42.png",
-    // Since we only have 3 uploaded images available, we'll use one again to make 4 total
-    "/lovable-uploads/59e45b98-2f23-4d86-b599-cb6283a28e44.png"
+    "/lovable-uploads/e06f01ce-eed4-490e-bbc4-126074383981.png", // NLU agent diagram
+    "/lovable-uploads/c7970a74-16b5-4d94-8a61-382c7e9729e2.png", // SuperLens is your personal AI data analyst
+    "/lovable-uploads/c7d508be-61b3-4747-b60e-2ca1463b3e06.png", // Problem statement
+    "/lovable-uploads/735f7395-0365-4edc-9f69-7592cefa17f1.png"  // To democratize advanced data analytics
   ];
 
   return (
