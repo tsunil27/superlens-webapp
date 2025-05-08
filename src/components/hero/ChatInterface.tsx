@@ -25,9 +25,9 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({
   onKeyDown
 }) => {
   return (
-    <div className="mt-16 max-w-4xl mx-auto relative">
+    <div className="mt-16 max-w-4xl mx-auto relative w-full h-[400px]">
       <div className="absolute -inset-0.5 bg-gradient-to-r from-superlens-lightBlue to-superlens-blue rounded-lg opacity-30 blur-sm"></div>
-      <div className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 relative">
+      <div className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 relative h-full">
         {/* Chat Interface Header */}
         <div className="h-12 bg-gray-100 flex items-center px-4">
           <div className="flex space-x-2">
@@ -39,8 +39,8 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({
         </div>
         
         {/* Chat Interface Body */}
-        <div className="p-4 bg-white">
-          <div className="flex flex-col space-y-4">
+        <div className="p-4 bg-white h-[calc(100%-3rem)] flex flex-col">
+          <div className="flex flex-col space-y-4 flex-grow">
             {/* AI Response with Visualization */}
             <AIResponse
               showChart={showChart}
@@ -49,13 +49,15 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({
             />
             
             {/* Message Input */}
-            <QueryInput
-              userInput={userInput}
-              isTyping={isTyping} 
-              typedText={typedText}
-              onInputChange={onInputChange}
-              onKeyDown={onKeyDown}
-            />
+            <div className="mt-auto">
+              <QueryInput
+                userInput={userInput}
+                isTyping={isTyping} 
+                typedText={typedText}
+                onInputChange={onInputChange}
+                onKeyDown={onKeyDown}
+              />
+            </div>
           </div>
         </div>
       </div>
