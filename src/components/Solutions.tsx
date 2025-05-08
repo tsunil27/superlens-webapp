@@ -2,7 +2,7 @@
 import React from 'react';
 import { Button } from './ui/button';
 import { Link } from 'react-router-dom';
-import { Brain, Film, Football, Joystick, ShoppingCart } from 'lucide-react';
+import { Brain, Film, Trophy, Joystick, ShoppingCart } from 'lucide-react';
 
 const Solutions: React.FC = () => {
   const solutions = [
@@ -24,7 +24,7 @@ const Solutions: React.FC = () => {
       industry: "Sports Streaming",
       title: "Enhance fan experiences through data intelligence",
       description: "Deliver personalized content, optimize streaming quality, and monetize viewer engagement.",
-      icon: Football,
+      icon: Trophy,
       link: "/solutions/sports-streaming"
     },
     {

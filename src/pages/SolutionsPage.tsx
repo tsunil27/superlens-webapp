@@ -2,7 +2,7 @@
 import React from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import { Brain, Film, Football, Joystick, ShoppingCart } from 'lucide-react';
+import { Brain, Film, Trophy, Joystick, ShoppingCart } from 'lucide-react';
 
 // Solution Card Component
 const SolutionCard = ({ 
@@ -50,7 +50,7 @@ const SolutionsPage = () => {
       title: "Sports Streaming",
       description: "Enhance fan experiences through data intelligence that delivers personalized content and optimizes streaming quality.",
       link: "/solutions/sports-streaming",
-      icon: Football
+      icon: Trophy
     },
     {
       title: "Gaming",
