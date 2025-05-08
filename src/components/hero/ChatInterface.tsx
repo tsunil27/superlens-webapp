@@ -25,7 +25,7 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({
   onKeyDown
 }) => {
   return (
-    <div className="mt-16 max-w-4xl mx-auto relative w-full h-[400px]">
+    <div className="mt-16 max-w-4xl mx-auto relative w-full h-[500px]">
       <div className="absolute -inset-0.5 bg-gradient-to-r from-superlens-lightBlue to-superlens-blue rounded-lg opacity-30 blur-sm"></div>
       <div className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 relative h-full">
         {/* Chat Interface Header */}
