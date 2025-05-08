@@ -1,10 +1,5 @@
 
 import React, { useState, useEffect } from 'react';
-import { 
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
 
 interface VideoCarouselProps {
   images: string[];
@@ -30,14 +25,14 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({
       {images.map((image, index) => (
         <div 
           key={index}
-          className={`absolute inset-0 transition-opacity duration-1000 ${
+          className={`absolute inset-0 transition-opacity duration-1000 flex items-center justify-center ${
             index === currentIndex ? 'opacity-100' : 'opacity-0'
           }`}
         >
           <img 
             src={image} 
             alt={`SuperLens Platform View ${index + 1}`} 
-            className="w-full h-full object-cover"
+            className="max-w-full max-h-full object-contain"
           />
         </div>
       ))}
