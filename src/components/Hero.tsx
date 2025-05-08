@@ -85,17 +85,17 @@ const Hero: React.FC = () => {
   }, [activeQueryIndex, isAutoTyping]);
 
   return (
-    <section className="bg-white py-10 md:py-16 relative overflow-hidden h-full min-h-screen">
+    <section className="bg-white py-10 md:py-16 relative overflow-hidden min-h-[80vh]">
       <div className="absolute inset-0 hero-gradient"></div>
       <div className="container mx-auto px-4 relative z-10">
-        <div className="flex flex-col lg:flex-row gap-8 items-start">
+        <div className="flex flex-col lg:flex-row gap-8 items-center min-h-[60vh]">
           {/* Title and buttons section (left side) */}
-          <div className="lg:w-1/2">
+          <div className="lg:w-1/2 flex items-center">
             <HeroTitle />
           </div>
           
           {/* Chat interface section (right side) */}
-          <div className="lg:w-1/2">
+          <div className="lg:w-1/2 flex items-center">
             <ChatInterface 
               typedText={typedText}
               isTyping={isTyping}

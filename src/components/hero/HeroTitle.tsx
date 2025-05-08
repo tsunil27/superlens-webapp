@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const HeroTitle: React.FC = () => {
   return (
-    <div className="max-w-full text-left">
+    <div className="w-full text-left">
       <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-superlens-textBlue mb-6 leading-tight">
         AI-Powered Decision Intelligence Platform
       </h1>
