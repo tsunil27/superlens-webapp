@@ -91,7 +91,25 @@
     33%, 66% { opacity: 0.6; }
   }
   
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+  
   .animate-carousel {
     animation: carousel 10s infinite ease-in-out;
+  }
+  
+  .carousel-fade-in {
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .carousel-fade-out {
+    animation: fadeOut 1s ease-in-out;
   }
 }

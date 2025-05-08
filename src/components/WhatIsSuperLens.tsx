@@ -1,8 +1,17 @@
 
 import React from 'react';
 import { Card } from './ui/card';
+import VideoCarousel from './VideoCarousel';
 
 const WhatIsSuperLens: React.FC = () => {
+  // Array of image paths for the carousel
+  const carouselImages = [
+    "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3",
+    "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3",
+    "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3",
+    "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.0.3"
+  ];
+
   return (
     <section id="what-is-superlens" className="py-16 bg-white relative">
       <div className="container mx-auto px-4">
@@ -16,29 +25,8 @@ const WhatIsSuperLens: React.FC = () => {
         <div className="flex flex-col lg:flex-row gap-8 items-center">
           <div className="lg:w-1/2">
             <div className="rounded-lg overflow-hidden shadow-lg bg-white">
-              <div className="video-carousel relative w-full h-[320px] md:h-[400px] bg-gray-100 rounded-lg overflow-hidden">
-                {/* Video/Image loop container */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="carousel-container w-full h-full">
-                    <div className="carousel-slide animate-carousel">
-                      <img 
-                        src="/lovable-uploads/eb7991e4-c439-4e38-bce0-d3bcdbf80f42.png" 
-                        alt="SuperLens Platform" 
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Play button overlay */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-16 h-16 rounded-full bg-superlens-richBlue/80 flex items-center justify-center cursor-pointer hover:bg-superlens-richBlue transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                </div>
+              <div className="relative w-full h-[320px] md:h-[400px] bg-gray-100 rounded-lg overflow-hidden">
+                <VideoCarousel images={carouselImages} interval={4000} />
               </div>
             </div>
           </div>
