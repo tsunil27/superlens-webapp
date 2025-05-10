@@ -11,11 +11,11 @@ const Logo: React.FC<LogoProps> = ({ className = '' }) => {
     <Link to="/" className={`flex items-center gap-3 ${className}`}>
       <div className="relative w-12 h-12 md:w-14 md:h-14">
         <img
-          src="/lovable-uploads/90a449f9-7a8d-4db5-afcb-b77e6743286c.png"
+          src="/lovable-uploads/121ce3a6-23eb-46ab-a677-cf16ad9c5173.png"
           alt="SuperLens Logo"
           className="w-full h-full object-contain"
           style={{ 
-            filter: 'drop-shadow(0 0 8px rgba(14, 165, 233, 0.6))' 
+            filter: 'drop-shadow(0 0 12px rgba(14, 165, 233, 0.7))' 
           }}
         />
       </div>
