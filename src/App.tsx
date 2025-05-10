@@ -6,10 +6,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import ProductPage from "./pages/ProductPage";
-import SolutionsPage from "./pages/SolutionsPage";
-import PricingPage from "./pages/PricingPage";
 import CompanyPage from "./pages/CompanyPage";
+import PricingPage from "./pages/PricingPage";
 import FreeTrialPage from "./pages/FreeTrialPage";
 import BookDemoPage from "./pages/BookDemoPage";
 
@@ -23,13 +21,6 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/product" element={<ProductPage />} />
-          <Route path="/solutions" element={<SolutionsPage />} />
-          <Route path="/solutions/software-tech" element={<SolutionsPage />} />
-          <Route path="/solutions/media-entertainment" element={<SolutionsPage />} />
-          <Route path="/solutions/sports-streaming" element={<SolutionsPage />} />
-          <Route path="/solutions/gaming" element={<SolutionsPage />} />
-          <Route path="/solutions/retail-ecommerce" element={<SolutionsPage />} />
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="/company" element={<CompanyPage />} />
           <Route path="/free-trial" element={<FreeTrialPage />} />

@@ -15,35 +15,12 @@ const Navigation: React.FC = () => {
 
   const navItems = [
     {
-      label: "Product",
-      href: "/product",
-      hasDropdown: true,
-      dropdownItems: [
-        { label: "Features", href: "/product/features" },
-        { label: "Data Integration", href: "/product/data-integration" },
-        { label: "Natural Language", href: "/product/natural-language" },
-        { label: "Automation", href: "/product/automation" }
-      ]
-    },
-    {
-      label: "Solutions",
-      href: "/solutions",
-      hasDropdown: true,
-      dropdownItems: [
-        { label: "Software & Tech", href: "/solutions/software-tech" },
-        { label: "Media Entertainment", href: "/solutions/media-entertainment" },
-        { label: "Sports Streaming", href: "/solutions/sports-streaming" },
-        { label: "Gaming", href: "/solutions/gaming" },
-        { label: "Retail & eCommerce", href: "/solutions/retail-ecommerce" }
-      ]
-    },
-    {
       label: "Pricing",
       href: "/pricing",
       hasDropdown: false
     },
     {
-      label: "Company",
+      label: "About Us",
       href: "/company",
       hasDropdown: true,
       dropdownItems: [
