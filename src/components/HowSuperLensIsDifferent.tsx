@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ArrowRight, MessageCircle, LineChart, Zap, Users } from 'lucide-react';
 import { Button } from './ui/button';
 import {
@@ -11,6 +11,21 @@ import {
 } from "./ui/carousel";
 
 const HowSuperLensIsDifferent: React.FC = () => {
+  const [api, setApi] = useState<any>();
+  
+  // Set up auto-rotation effect
+  useEffect(() => {
+    if (!api) return;
+    
+    // Auto-rotate every 5 seconds
+    const autoRotationInterval = setInterval(() => {
+      api.scrollNext();
+    }, 5000);
+    
+    // Cleanup interval on component unmount
+    return () => clearInterval(autoRotationInterval);
+  }, [api]);
+  
   return (
     <section id="how-superlens-is-different" className="py-16 bg-superlens-mutedBlue relative">
       <div className="container mx-auto px-4">
@@ -21,92 +36,94 @@ const HowSuperLensIsDifferent: React.FC = () => {
           </p>
         </div>
 
-        <Carousel
-          opts={{
-            align: "start",
-            loop: true,
-          }}
-          className="w-full max-w-5xl mx-auto"
-        >
-          <CarouselContent>
-            {/* Card 1 */}
-            <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-              <div className="bg-white rounded-lg shadow-lg p-8 h-full transition-transform hover:translate-y-[-5px]">
-                <div className="w-14 h-14 bg-superlens-richBlue/10 rounded-full flex items-center justify-center mb-6">
-                  <MessageCircle className="h-7 w-7 text-superlens-richBlue" />
+        <div className="relative max-w-5xl mx-auto">
+          <Carousel
+            setApi={setApi}
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent>
+              {/* Card 1 */}
+              <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+                <div className="bg-white rounded-lg shadow-lg p-8 h-full transition-transform hover:translate-y-[-5px]">
+                  <div className="w-14 h-14 bg-superlens-richBlue/10 rounded-full flex items-center justify-center mb-6">
+                    <MessageCircle className="h-7 w-7 text-superlens-richBlue" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-superlens-textBlue mb-3">
+                    Conversational Analytics
+                  </h3>
+                  <p className="text-superlens-textBlue/80 mb-6">
+                    Ask questions in natural language and get instant visual insights without needing to write complex queries or understand data structures.
+                  </p>
+                  <Button variant="link" className="text-superlens-richBlue p-0 hover:no-underline flex items-center">
+                    Learn more <ArrowRight className="ml-1 h-4 w-4" />
+                  </Button>
                 </div>
-                <h3 className="text-xl font-semibold text-superlens-textBlue mb-3">
-                  Conversational Analytics
-                </h3>
-                <p className="text-superlens-textBlue/80 mb-6">
-                  Ask questions in natural language and get instant visual insights without needing to write complex queries or understand data structures.
-                </p>
-                <Button variant="link" className="text-superlens-richBlue p-0 hover:no-underline flex items-center">
-                  Learn more <ArrowRight className="ml-1 h-4 w-4" />
-                </Button>
-              </div>
-            </CarouselItem>
-            
-            {/* Card 2 */}
-            <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-              <div className="bg-white rounded-lg shadow-lg p-8 h-full transition-transform hover:translate-y-[-5px]">
-                <div className="w-14 h-14 bg-superlens-richBlue/10 rounded-full flex items-center justify-center mb-6">
-                  <LineChart className="h-7 w-7 text-superlens-richBlue" />
+              </CarouselItem>
+              
+              {/* Card 2 */}
+              <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+                <div className="bg-white rounded-lg shadow-lg p-8 h-full transition-transform hover:translate-y-[-5px]">
+                  <div className="w-14 h-14 bg-superlens-richBlue/10 rounded-full flex items-center justify-center mb-6">
+                    <LineChart className="h-7 w-7 text-superlens-richBlue" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-superlens-textBlue mb-3">
+                    Automated Insights
+                  </h3>
+                  <p className="text-superlens-textBlue/80 mb-6">
+                    SuperLens automatically discovers key drivers, trends, and anomalies in your data and presents them without you having to search for them.
+                  </p>
+                  <Button variant="link" className="text-superlens-richBlue p-0 hover:no-underline flex items-center">
+                    Learn more <ArrowRight className="ml-1 h-4 w-4" />
+                  </Button>
                 </div>
-                <h3 className="text-xl font-semibold text-superlens-textBlue mb-3">
-                  Automated Insights
-                </h3>
-                <p className="text-superlens-textBlue/80 mb-6">
-                  SuperLens automatically discovers key drivers, trends, and anomalies in your data and presents them without you having to search for them.
-                </p>
-                <Button variant="link" className="text-superlens-richBlue p-0 hover:no-underline flex items-center">
-                  Learn more <ArrowRight className="ml-1 h-4 w-4" />
-                </Button>
-              </div>
-            </CarouselItem>
-            
-            {/* Card 3 */}
-            <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-              <div className="bg-white rounded-lg shadow-lg p-8 h-full transition-transform hover:translate-y-[-5px]">
-                <div className="w-14 h-14 bg-superlens-richBlue/10 rounded-full flex items-center justify-center mb-6">
-                  <Zap className="h-7 w-7 text-superlens-richBlue" />
+              </CarouselItem>
+              
+              {/* Card 3 */}
+              <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+                <div className="bg-white rounded-lg shadow-lg p-8 h-full transition-transform hover:translate-y-[-5px]">
+                  <div className="w-14 h-14 bg-superlens-richBlue/10 rounded-full flex items-center justify-center mb-6">
+                    <Zap className="h-7 w-7 text-superlens-richBlue" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-superlens-textBlue mb-3">
+                    Actionable Intelligence
+                  </h3>
+                  <p className="text-superlens-textBlue/80 mb-6">
+                    Go beyond just viewing data to take immediate action based on insights, all within the same platform without context switching.
+                  </p>
+                  <Button variant="link" className="text-superlens-richBlue p-0 hover:no-underline flex items-center">
+                    Learn more <ArrowRight className="ml-1 h-4 w-4" />
+                  </Button>
                 </div>
-                <h3 className="text-xl font-semibold text-superlens-textBlue mb-3">
-                  Actionable Intelligence
-                </h3>
-                <p className="text-superlens-textBlue/80 mb-6">
-                  Go beyond just viewing data to take immediate action based on insights, all within the same platform without context switching.
-                </p>
-                <Button variant="link" className="text-superlens-richBlue p-0 hover:no-underline flex items-center">
-                  Learn more <ArrowRight className="ml-1 h-4 w-4" />
-                </Button>
-              </div>
-            </CarouselItem>
+              </CarouselItem>
 
-            {/* Card 4 - New Human in the Loop card */}
-            <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-              <div className="bg-white rounded-lg shadow-lg p-8 h-full transition-transform hover:translate-y-[-5px]">
-                <div className="w-14 h-14 bg-superlens-richBlue/10 rounded-full flex items-center justify-center mb-6">
-                  <Users className="h-7 w-7 text-superlens-richBlue" />
+              {/* Card 4 - New Human in the Loop card */}
+              <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+                <div className="bg-white rounded-lg shadow-lg p-8 h-full transition-transform hover:translate-y-[-5px]">
+                  <div className="w-14 h-14 bg-superlens-richBlue/10 rounded-full flex items-center justify-center mb-6">
+                    <Users className="h-7 w-7 text-superlens-richBlue" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-superlens-textBlue mb-3">
+                    Human in the Loop
+                  </h3>
+                  <p className="text-superlens-textBlue/80 mb-6">
+                    SuperLens uses Reinforcement Learning from Human Feedback (RLHF) to continuously improve. Your feedback shapes our AI, ensuring more accurate and relevant results over time with every interaction.
+                  </p>
+                  <Button variant="link" className="text-superlens-richBlue p-0 hover:no-underline flex items-center">
+                    Learn more <ArrowRight className="ml-1 h-4 w-4" />
+                  </Button>
                 </div>
-                <h3 className="text-xl font-semibold text-superlens-textBlue mb-3">
-                  Human in the Loop
-                </h3>
-                <p className="text-superlens-textBlue/80 mb-6">
-                  SuperLens uses Reinforcement Learning from Human Feedback (RLHF) to continuously improve. Your feedback shapes our AI, ensuring more accurate and relevant results over time with every interaction.
-                </p>
-                <Button variant="link" className="text-superlens-richBlue p-0 hover:no-underline flex items-center">
-                  Learn more <ArrowRight className="ml-1 h-4 w-4" />
-                </Button>
-              </div>
-            </CarouselItem>
-          </CarouselContent>
-          
-          <div className="flex justify-center mt-8 gap-4">
-            <CarouselPrevious className="static translate-y-0 mx-1" />
-            <CarouselNext className="static translate-y-0 mx-1" />
-          </div>
-        </Carousel>
+              </CarouselItem>
+            </CarouselContent>
+            
+            {/* Positioned carousel controls on either side */}
+            <CarouselPrevious className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12" />
+            <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12" />
+          </Carousel>
+        </div>
       </div>
       
       {/* Background decoration */}
