@@ -32,7 +32,7 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({
           <img 
             src={image} 
             alt={`SuperLens Platform View ${index + 1}`} 
-            className="max-w-full max-h-full object-contain"
+            className="w-full h-full object-contain"
           />
         </div>
       ))}
