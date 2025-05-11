@@ -10,7 +10,12 @@ import {
   CalendarClock, 
   BarChart4, 
   ScrollText, 
-  Layers 
+  Layers,
+  Snowflake,
+  Cloud,
+  Database2,
+  LayoutDashboard,
+  TableProperties
 } from 'lucide-react';
 
 const TechStack: React.FC = () => {
@@ -20,13 +25,20 @@ const TechStack: React.FC = () => {
     { name: 'PostgreSQL', icon: <FileStack className="h-12 w-12 text-[#336791]" /> },
     { name: 'MySQL', icon: <Database className="h-12 w-12 text-[#4479A1]" /> },
     { name: 'S3', icon: <Server className="h-12 w-12 text-[#569A31]" /> },
-    { name: 'Snowflake', icon: <Boxes className="h-12 w-12 text-[#29B5E8]" /> },
+    { name: 'Snowflake', icon: <Snowflake className="h-12 w-12 text-[#29B5E8]" /> },
     { name: 'Excel', icon: <File className="h-12 w-12 text-[#217346]" /> },
     { name: 'JSON', icon: <FileJson className="h-12 w-12 text-[#F5DE19]" /> },
     { name: 'BigQuery', icon: <Layers className="h-12 w-12 text-[#4285F4]" /> },
     { name: 'CSV', icon: <ScrollText className="h-12 w-12 text-[#EC6630]" /> },
     { name: 'API', icon: <CalendarClock className="h-12 w-12 text-[#444444]" /> },
     { name: 'Redshift', icon: <Database className="h-12 w-12 text-[#8C4FFF]" /> },
+    // Additional row of logos
+    { name: 'Databricks', icon: <Cloud className="h-12 w-12 text-[#FF3621]" /> },
+    { name: 'Amazon Redshift', icon: <Database2 className="h-12 w-12 text-[#8C4FFF]" /> },
+    { name: 'Oracle', icon: <TableProperties className="h-12 w-12 text-[#F80000]" /> },
+    { name: 'Big Query', icon: <LayoutDashboard className="h-12 w-12 text-[#4285F4]" /> },
+    { name: 'Salesforce Analytics', icon: <BarChart4 className="h-12 w-12 text-[#1589EE]" /> },
+    { name: 'Azure SQL', icon: <Database className="h-12 w-12 text-[#0078D4]" /> },
   ];
 
   return (
