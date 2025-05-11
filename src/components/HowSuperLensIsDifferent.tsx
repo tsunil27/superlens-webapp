@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import { ArrowRight, MessageCircle, LineChart, Zap, Users } from 'lucide-react';
+import { ArrowRight, MessageCircle, LineChart, Zap, Users, Database } from 'lucide-react';
 import { Button } from './ui/button';
 import {
   Carousel,
@@ -100,7 +100,7 @@ const HowSuperLensIsDifferent: React.FC = () => {
                 </div>
               </CarouselItem>
 
-              {/* Card 4 - New Human in the Loop card */}
+              {/* Card 4 - Human in the Loop card */}
               <CarouselItem className="md:basis-1/2 lg:basis-1/3">
                 <div className="bg-white rounded-lg shadow-lg p-8 h-full transition-transform hover:translate-y-[-5px]">
                   <div className="w-14 h-14 bg-superlens-richBlue/10 rounded-full flex items-center justify-center mb-6">
@@ -111,6 +111,24 @@ const HowSuperLensIsDifferent: React.FC = () => {
                   </h3>
                   <p className="text-superlens-textBlue/80 mb-6">
                     SuperLens uses Reinforcement Learning from Human Feedback (RLHF) to continuously improve. Your feedback shapes our AI, ensuring more accurate and relevant results over time with every interaction.
+                  </p>
+                  <Button variant="link" className="text-superlens-richBlue p-0 hover:no-underline flex items-center">
+                    Learn more <ArrowRight className="ml-1 h-4 w-4" />
+                  </Button>
+                </div>
+              </CarouselItem>
+              
+              {/* Card 5 - NEW Domain Rich Model card */}
+              <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+                <div className="bg-white rounded-lg shadow-lg p-8 h-full transition-transform hover:translate-y-[-5px]">
+                  <div className="w-14 h-14 bg-superlens-richBlue/10 rounded-full flex items-center justify-center mb-6">
+                    <Database className="h-7 w-7 text-superlens-richBlue" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-superlens-textBlue mb-3">
+                    Domain Rich Model
+                  </h3>
+                  <p className="text-superlens-textBlue/80 mb-6">
+                    SuperLens incorporates domain-specific context knowledge during model training, significantly enhancing query accuracy in specialized industries. Our AI understands your unique business terminology and relationships, providing more meaningful insights specific to your domain.
                   </p>
                   <Button variant="link" className="text-superlens-richBlue p-0 hover:no-underline flex items-center">
                     Learn more <ArrowRight className="ml-1 h-4 w-4" />
