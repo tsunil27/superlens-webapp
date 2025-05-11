@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Card, CardContent } from './ui/card';
-import { Database, Server, Link, Network, Plug, Cloud, FileText, FileExcel, GoogleSheets } from 'lucide-react';
+import { Database, Server, Link, Network, Plug, Cloud, FileText, FileSpreadsheet, Table2 } from 'lucide-react';
 
 const TechStack: React.FC = () => {
   return (
@@ -85,11 +85,11 @@ const TechStack: React.FC = () => {
                   <span className="text-xs text-center text-gray-600">CSV</span>
                 </div>
                 <div className="flex flex-col items-center p-3 rounded-lg hover:bg-green-50 transition-colors">
-                  <FileExcel className="w-10 h-10 text-superlens-richBlue mb-2" />
+                  <FileSpreadsheet className="w-10 h-10 text-superlens-richBlue mb-2" />
                   <span className="text-xs text-center text-gray-600">Excel</span>
                 </div>
                 <div className="flex flex-col items-center p-3 rounded-lg hover:bg-green-50 transition-colors">
-                  <GoogleSheets className="w-10 h-10 text-superlens-richBlue mb-2" />
+                  <Table2 className="w-10 h-10 text-superlens-richBlue mb-2" />
                   <span className="text-xs text-center text-gray-600">Google Sheets</span>
                 </div>
               </div>
