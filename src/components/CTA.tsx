@@ -22,7 +22,7 @@ const CTA: React.FC = () => {
               </Button>
             </Link>
             <Link to="/free-trial">
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-superlens-richBlue font-medium px-8">
+              <Button size="lg" variant="outline" className="border-white text-superlens-richBlue bg-white hover:bg-blue-50 hover:text-superlens-richBlue font-medium px-8">
                 Start Free Trial
               </Button>
             </Link>
