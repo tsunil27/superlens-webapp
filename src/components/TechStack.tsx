@@ -2,42 +2,32 @@
 import React from 'react';
 import { 
   Database, 
+  FileSpreadsheet,
   Server, 
-  Boxes, 
   FileStack, 
-  File, 
-  FileJson, 
-  CalendarClock, 
   BarChart4, 
-  ScrollText, 
   Layers,
   Snowflake,
   Cloud,
-  LayoutDashboard,
   TableProperties
 } from 'lucide-react';
 
 const TechStack: React.FC = () => {
   const techIcons = [
-    { name: 'Salesforce', icon: <BarChart4 className="h-12 w-12 text-[#00A1E0]" /> },
-    { name: 'MongoDB', icon: <Database className="h-12 w-12 text-[#4DB33D]" /> },
+    { name: 'Snowflake', icon: <Snowflake className="h-12 w-12 text-[#29B5E8]" /> },
+    { name: 'Databricks', icon: <Cloud className="h-12 w-12 text-[#FF3621]" /> },
+    { name: 'Google BigQuery', icon: <Layers className="h-12 w-12 text-[#4285F4]" /> },
+    { name: 'Amazon S3', icon: <Server className="h-12 w-12 text-[#569A31]" /> },
+    { name: 'Amazon Redshift', icon: <Database className="h-12 w-12 text-[#8C4FFF]" /> },
+    { name: 'Oracle', icon: <TableProperties className="h-12 w-12 text-[#F80000]" /> },
+    { name: 'Salesforce', icon: <BarChart4 className="h-12 w-12 text-[#1589EE]" /> },
+    { name: 'Excel', icon: <FileSpreadsheet className="h-12 w-12 text-[#217346]" /> },
+    { name: 'Google Sheets', icon: <FileSpreadsheet className="h-12 w-12 text-[#0F9D58]" /> },
     { name: 'PostgreSQL', icon: <FileStack className="h-12 w-12 text-[#336791]" /> },
     { name: 'MySQL', icon: <Database className="h-12 w-12 text-[#4479A1]" /> },
-    { name: 'S3', icon: <Server className="h-12 w-12 text-[#569A31]" /> },
-    { name: 'Snowflake', icon: <Snowflake className="h-12 w-12 text-[#29B5E8]" /> },
-    { name: 'Excel', icon: <File className="h-12 w-12 text-[#217346]" /> },
-    { name: 'JSON', icon: <FileJson className="h-12 w-12 text-[#F5DE19]" /> },
-    { name: 'BigQuery', icon: <Layers className="h-12 w-12 text-[#4285F4]" /> },
-    { name: 'CSV', icon: <ScrollText className="h-12 w-12 text-[#EC6630]" /> },
-    { name: 'API', icon: <CalendarClock className="h-12 w-12 text-[#444444]" /> },
-    { name: 'Redshift', icon: <Database className="h-12 w-12 text-[#8C4FFF]" /> },
-    // Additional row of logos
-    { name: 'Databricks', icon: <Cloud className="h-12 w-12 text-[#FF3621]" /> },
-    { name: 'Amazon Redshift', icon: <Database className="h-12 w-12 text-[#8C4FFF]" /> }, // Changed from Database2 to Database
-    { name: 'Oracle', icon: <TableProperties className="h-12 w-12 text-[#F80000]" /> },
-    { name: 'Big Query', icon: <LayoutDashboard className="h-12 w-12 text-[#4285F4]" /> },
-    { name: 'Salesforce Analytics', icon: <BarChart4 className="h-12 w-12 text-[#1589EE]" /> },
-    { name: 'Azure SQL', icon: <Database className="h-12 w-12 text-[#0078D4]" /> },
+    { name: 'SQL Server', icon: <Database className="h-12 w-12 text-[#CC2927]" /> },
+    { name: 'SingleStore', icon: <Database className="h-12 w-12 text-[#AA00FF]" /> },
+    { name: 'Clickhouse', icon: <Database className="h-12 w-12 text-[#FFCC01]" /> },
   ];
 
   return (
@@ -53,7 +43,7 @@ const TechStack: React.FC = () => {
         </div>
 
         <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 md:gap-12 items-center justify-items-center">
+          <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-8 md:gap-12 items-center justify-items-center">
             {techIcons.map((tech, index) => (
               <div 
                 key={index}
