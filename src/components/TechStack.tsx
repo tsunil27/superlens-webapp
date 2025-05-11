@@ -4,7 +4,7 @@ import {
   Database, 
   Server, 
   Boxes, 
-  CircleStack, 
+  FileStack, 
   File, 
   FileJson, 
   CalendarClock, 
@@ -17,7 +17,7 @@ const TechStack: React.FC = () => {
   const techIcons = [
     { name: 'Salesforce', icon: <BarChart4 className="h-10 w-10 text-[#00A1E0]" /> },
     { name: 'MongoDB', icon: <Database className="h-10 w-10 text-[#4DB33D]" /> },
-    { name: 'PostgreSQL', icon: <CircleStack className="h-10 w-10 text-[#336791]" /> },
+    { name: 'PostgreSQL', icon: <FileStack className="h-10 w-10 text-[#336791]" /> },
     { name: 'MySQL', icon: <Database className="h-10 w-10 text-[#4479A1]" /> },
     { name: 'S3', icon: <Server className="h-10 w-10 text-[#569A31]" /> },
     { name: 'Snowflake', icon: <Boxes className="h-10 w-10 text-[#29B5E8]" /> },
