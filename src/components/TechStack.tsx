@@ -13,7 +13,6 @@ import {
   Layers,
   Snowflake,
   Cloud,
-  Database2,
   LayoutDashboard,
   TableProperties
 } from 'lucide-react';
@@ -34,7 +33,7 @@ const TechStack: React.FC = () => {
     { name: 'Redshift', icon: <Database className="h-12 w-12 text-[#8C4FFF]" /> },
     // Additional row of logos
     { name: 'Databricks', icon: <Cloud className="h-12 w-12 text-[#FF3621]" /> },
-    { name: 'Amazon Redshift', icon: <Database2 className="h-12 w-12 text-[#8C4FFF]" /> },
+    { name: 'Amazon Redshift', icon: <Database className="h-12 w-12 text-[#8C4FFF]" /> }, // Changed from Database2 to Database
     { name: 'Oracle', icon: <TableProperties className="h-12 w-12 text-[#F80000]" /> },
     { name: 'Big Query', icon: <LayoutDashboard className="h-12 w-12 text-[#4285F4]" /> },
     { name: 'Salesforce Analytics', icon: <BarChart4 className="h-12 w-12 text-[#1589EE]" /> },
