@@ -2,6 +2,7 @@
 import React from 'react';
 import { Shield, Lock, FileCheck, Building, Award } from 'lucide-react';
 import { Card, CardContent } from './ui/card';
+import { Badge } from './ui/badge';
 
 const SecurityTrust: React.FC = () => {
   const securityFeatures = [
@@ -39,6 +40,11 @@ const SecurityTrust: React.FC = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-superlens-textBlue">
             Enterprise Grade Security You Can Trust
           </h2>
+          <div className="flex justify-center mb-4">
+            <Badge className="bg-gradient-to-r from-superlens-richBlue to-[#D946EF] text-white px-3 py-1 text-sm">
+              Coming Soon
+            </Badge>
+          </div>
           <p className="text-gray-600 max-w-2xl mx-auto text-lg">
             SuperLens provides the highest level of security and compliance, ensuring your sensitive data remains protected.
           </p>
