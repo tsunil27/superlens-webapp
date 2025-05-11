@@ -25,9 +25,9 @@ const TechStack: React.FC = () => {
           />
         </div>
         
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Data Sources Card */}
-          <Card className="shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
+          <Card className="shadow-md border border-gray-100 hover:shadow-lg transition-shadow md:col-span-2">
             <CardContent className="pt-6">
               <div className="text-center mb-6">
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 mb-4">
@@ -79,7 +79,7 @@ const TechStack: React.FC = () => {
                 <h3 className="text-xl font-bold text-superlens-textBlue">Adhoc Sources</h3>
               </div>
               
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-1 gap-4">
                 <div className="flex flex-col items-center p-3 rounded-lg hover:bg-green-50 transition-colors">
                   <FileText className="w-10 h-10 text-superlens-richBlue mb-2" />
                   <span className="text-xs text-center text-gray-600">CSV</span>
