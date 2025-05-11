@@ -48,7 +48,7 @@ const HowSuperLensIsDifferent: React.FC = () => {
             <CarouselContent>
               {/* Card 1 */}
               <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-                <div className="bg-white rounded-lg shadow-lg p-8 h-full transition-transform hover:translate-y-[-5px]">
+                <div className="bg-blue-50 rounded-lg shadow-lg p-8 h-full transition-transform hover:translate-y-[-5px]">
                   <div className="w-14 h-14 bg-superlens-richBlue/10 rounded-full flex items-center justify-center mb-6">
                     <MessageCircle className="h-7 w-7 text-superlens-richBlue" />
                   </div>
@@ -66,7 +66,7 @@ const HowSuperLensIsDifferent: React.FC = () => {
               
               {/* Card 2 */}
               <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-                <div className="bg-white rounded-lg shadow-lg p-8 h-full transition-transform hover:translate-y-[-5px]">
+                <div className="bg-green-50 rounded-lg shadow-lg p-8 h-full transition-transform hover:translate-y-[-5px]">
                   <div className="w-14 h-14 bg-superlens-richBlue/10 rounded-full flex items-center justify-center mb-6">
                     <LineChart className="h-7 w-7 text-superlens-richBlue" />
                   </div>
@@ -84,7 +84,7 @@ const HowSuperLensIsDifferent: React.FC = () => {
               
               {/* Card 3 */}
               <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-                <div className="bg-white rounded-lg shadow-lg p-8 h-full transition-transform hover:translate-y-[-5px]">
+                <div className="bg-yellow-50 rounded-lg shadow-lg p-8 h-full transition-transform hover:translate-y-[-5px]">
                   <div className="w-14 h-14 bg-superlens-richBlue/10 rounded-full flex items-center justify-center mb-6">
                     <Zap className="h-7 w-7 text-superlens-richBlue" />
                   </div>
@@ -102,7 +102,7 @@ const HowSuperLensIsDifferent: React.FC = () => {
 
               {/* Card 4 - Human in the Loop card */}
               <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-                <div className="bg-white rounded-lg shadow-lg p-8 h-full transition-transform hover:translate-y-[-5px]">
+                <div className="bg-purple-50 rounded-lg shadow-lg p-8 h-full transition-transform hover:translate-y-[-5px]">
                   <div className="w-14 h-14 bg-superlens-richBlue/10 rounded-full flex items-center justify-center mb-6">
                     <Users className="h-7 w-7 text-superlens-richBlue" />
                   </div>
@@ -120,7 +120,7 @@ const HowSuperLensIsDifferent: React.FC = () => {
               
               {/* Card 5 - NEW Domain Rich Model card */}
               <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-                <div className="bg-white rounded-lg shadow-lg p-8 h-full transition-transform hover:translate-y-[-5px]">
+                <div className="bg-orange-50 rounded-lg shadow-lg p-8 h-full transition-transform hover:translate-y-[-5px]">
                   <div className="w-14 h-14 bg-superlens-richBlue/10 rounded-full flex items-center justify-center mb-6">
                     <Database className="h-7 w-7 text-superlens-richBlue" />
                   </div>
@@ -128,7 +128,7 @@ const HowSuperLensIsDifferent: React.FC = () => {
                     Domain Rich Model
                   </h3>
                   <p className="text-superlens-textBlue/80 mb-6">
-                    SuperLens incorporates domain-specific context knowledge during model training, significantly enhancing query accuracy in specialized industries. Our AI understands your unique business terminology and relationships, providing more meaningful insights specific to your domain.
+                    SuperLens incorporates domain-specific knowledge to enhance query accuracy for your industry. Our AI understands your unique business terminology, providing insights tailored to your domain.
                   </p>
                   <Button variant="link" className="text-superlens-richBlue p-0 hover:no-underline flex items-center">
                     Learn more <ArrowRight className="ml-1 h-4 w-4" />
