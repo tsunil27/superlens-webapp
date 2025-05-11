@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -49,9 +48,7 @@ const AboutUsPage = () => {
             <h2 className="text-3xl font-bold mb-6 text-center">Our Vision</h2>
             <div className="bg-white p-8 rounded-lg shadow-md max-w-3xl mx-auto">
               <p className="text-lg text-gray-700 leading-relaxed">
-                At SuperLens, our vision is to democratize data analytics, making powerful insights accessible to everyone. 
-                We believe that data should empower every decision, regardless of technical expertise, and we're committed 
-                to building tools that transform how organizations understand and utilize their data.
+                A world where every business decision is powered by intelligent data analysis, without the complexity and cost barriers.
               </p>
             </div>
           </section>
@@ -60,9 +57,7 @@ const AboutUsPage = () => {
             <h2 className="text-3xl font-bold mb-6 text-center">Our Mission</h2>
             <div className="bg-white p-8 rounded-lg shadow-md max-w-3xl mx-auto">
               <p className="text-lg text-gray-700 leading-relaxed">
-                Our mission is to provide intuitive, powerful analytics tools that enable organizations to unlock the full 
-                potential of their data. Through innovation and exceptional service, we help our clients make data-driven 
-                decisions confidently and efficiently, driving real business results across industries.
+                To democratize advanced data analytics and make AI-powered insights accessible to organizations of all sizes.
               </p>
             </div>
           </section>
