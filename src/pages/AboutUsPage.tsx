@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -6,9 +7,9 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 const AboutUsPage = () => {
   const teamMembers = [
     {
-      name: "Jane Doe",
-      position: "CEO",
-      bio: "With over 20 years of experience in data analytics, Jane has led SuperLens from inception to becoming an industry leader."
+      name: "Naveen Govindan",
+      position: "CEO & Founder",
+      bio: "More than two decades of experience in enterprise software and analytics engineering. Previously VP, Data Product Engineering at DAZN, ex-Warner Bros. Discovery and at Sky, Virgin Media, Vodafone, BT."
     },
     {
       name: "John Smith",
