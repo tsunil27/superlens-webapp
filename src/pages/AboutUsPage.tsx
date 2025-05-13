@@ -12,29 +12,29 @@ const AboutUsPage = () => {
       bio: "More than two decades of experience in enterprise software and analytics engineering. Previously VP, Data Product Engineering at DAZN, ex-Warner Bros. Discovery and at Sky, Virgin Media, Vodafone, BT."
     },
     {
-      name: "John Smith",
+      name: "Viswa",
       position: "Head Of Operations",
       bio: "John oversees all operational aspects of SuperLens, ensuring smooth delivery of our services to clients worldwide."
     },
     {
-      name: "Dr. Sarah Johnson",
+      name: "To be hired",
       position: "Chief Data Scientist",
-      bio: "Sarah leads our data science initiatives, bringing deep expertise in machine learning and AI to our platform."
+      bio: ""
     },
     {
-      name: "Michael Chen",
+      name: "To be hired",
       position: "Principal Data Engineer",
-      bio: "Michael architects our data infrastructure, ensuring scalability and performance across all our systems."
+      bio: ""
     },
     {
-      name: "Alicia Rodriguez",
+      name: "To be hired",
       position: "Lead Platform Engineer",
-      bio: "Alicia drives the technical development of our platform, focusing on creating intuitive and powerful user experiences."
+      bio: ""
     },
     {
-      name: "Robert Kim",
+      name: "To be hired",
       position: "Senior Data Analyst",
-      bio: "Robert specializes in turning complex data into actionable insights for our clients in various industries."
+      bio: ""
     }
   ];
 
@@ -70,7 +70,7 @@ const AboutUsPage = () => {
                 <div key={index} className="bg-white p-6 rounded-lg shadow-md">
                   <h3 className="text-xl font-bold mb-1">{member.name}</h3>
                   <p className="text-superlens-blue font-medium mb-3">{member.position}</p>
-                  <p className="text-gray-600">{member.bio}</p>
+                  {member.bio && <p className="text-gray-600">{member.bio}</p>}
                 </div>
               ))}
             </div>
