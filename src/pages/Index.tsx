@@ -4,6 +4,7 @@ import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
 import WhatIsSuperLens from '@/components/WhatIsSuperLens';
 import HowSuperLensIsDifferent from '@/components/HowSuperLensIsDifferent';
+import AgenticAppDescription from '@/components/AgenticAppDescription';
 import TechStack from '@/components/TechStack';
 import SecurityTrust from '@/components/SecurityTrust';
 import CTA from '@/components/CTA';
@@ -18,6 +19,7 @@ const Index = () => {
           <Hero />
           <WhatIsSuperLens />
           <HowSuperLensIsDifferent />
+          <AgenticAppDescription />
           <TechStack />
           <SecurityTrust />
           <CTA />
