@@ -37,18 +37,17 @@ const TechStack: React.FC = () => {
             {techLogos.map((tech, index) => (
               <div 
                 key={index}
-                className="flex flex-col items-center justify-center"
+                className="flex items-center justify-center"
                 aria-label={tech.name}
                 title={tech.name}
               >
-                <div className="h-12 w-auto flex items-center justify-center mb-2">
+                <div className="h-12 w-auto flex items-center justify-center">
                   <img 
                     src={tech.logo} 
                     alt={`${tech.name} logo`}
                     className="max-h-12 max-w-[100px] object-contain"
                   />
                 </div>
-                <span className="text-xs text-gray-600 text-center">{tech.name}</span>
               </div>
             ))}
           </div>
