@@ -9,7 +9,7 @@ const AboutUsPage = () => {
     {
       name: "Naveen Govindan",
       position: "CEO & Founder",
-      bio: "More than two decades of experience in enterprise software and analytics engineering. Previously VP, Data Product Engineering at DAZN, ex-Warner Bros. Discovery and at Sky, Virgin Media, Vodafone, BT."
+      bio: "Led Data Engineering teams at DAZN, WBD. I've seen firsthand how hard it is for business teams to get timely, actionable insights. Here, we are building SuperLens to eliminate the bottlenecks in BI with a conversational AI experience that delivers reliable, fast and context-aware narratives!"
     },
     {
       name: "Viswa",
