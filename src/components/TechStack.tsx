@@ -7,7 +7,6 @@ const TechStack: React.FC = () => {
     { name: 'Databricks', logo: "https://www.vectorlogo.zone/logos/databricks/databricks-ar21.svg" },
     { name: 'Google BigQuery', logo: "https://www.vectorlogo.zone/logos/google_bigquery/google_bigquery-ar21.svg" },
     { name: 'Amazon S3', logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Amazon-S3-Logo.svg/1200px-Amazon-S3-Logo.svg.png" },
-    { name: 'Amazon Redshift', logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Amazon-Redshift-Logo.svg/1200px-Amazon-Redshift-Logo.svg.png" },
     { name: 'Oracle', logo: "https://www.vectorlogo.zone/logos/oracle/oracle-ar21.svg" },
     { name: 'Salesforce', logo: "https://www.vectorlogo.zone/logos/salesforce/salesforce-ar21.svg" },
     { name: 'CSV', logo: "https://cdn-icons-png.flaticon.com/512/6133/6133884.png" },
