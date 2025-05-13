@@ -3,21 +3,21 @@ import React from 'react';
 
 const TechStack: React.FC = () => {
   const techLogos = [
-    { name: 'Snowflake', logo: "/lovable-uploads/6dcaeee2-25ff-496d-8a17-4c226a23f47f.png" },
-    { name: 'Databricks', logo: "/lovable-uploads/e06f01ce-eed4-490e-bbc4-126074383981.png" },
-    { name: 'Google BigQuery', logo: "/lovable-uploads/90a449f9-7a8d-4db5-afcb-b77e6743286c.png" },
-    { name: 'Amazon S3', logo: "/lovable-uploads/eb7991e4-c439-4e38-bce0-d3bcdbf80f42.png" },
-    { name: 'Amazon Redshift', logo: "/lovable-uploads/5d1e7cd9-1678-410d-8ef3-c3582e6d4d2c.png" },
-    { name: 'Oracle', logo: "/lovable-uploads/121ce3a6-23eb-46ab-a677-cf16ad9c5173.png" },
-    { name: 'Salesforce', logo: "/lovable-uploads/59e45b98-2f23-4d86-b599-cb6283a28e44.png" },
-    { name: 'CSV', logo: "/lovable-uploads/e6c5fbb9-5190-4375-8b09-935b3be6a604.png" },
-    { name: 'Excel', logo: "/lovable-uploads/e6c5fbb9-5190-4375-8b09-935b3be6a604.png" },
-    { name: 'Google Sheets', logo: "/lovable-uploads/90a449f9-7a8d-4db5-afcb-b77e6743286c.png" },
-    { name: 'PostgreSQL', logo: "/lovable-uploads/c7d508be-61b3-4747-b60e-2ca1463b3e06.png" },
-    { name: 'MySQL', logo: "/lovable-uploads/c7d508be-61b3-4747-b60e-2ca1463b3e06.png" },
-    { name: 'SQL Server', logo: "/lovable-uploads/121ce3a6-23eb-46ab-a677-cf16ad9c5173.png" },
-    { name: 'SingleStore', logo: "/lovable-uploads/c7d508be-61b3-4747-b60e-2ca1463b3e06.png" },
-    { name: 'Clickhouse', logo: "/lovable-uploads/c7d508be-61b3-4747-b60e-2ca1463b3e06.png" },
+    { name: 'Snowflake', logo: "https://www.vectorlogo.zone/logos/snowflake/snowflake-ar21.svg" },
+    { name: 'Databricks', logo: "https://www.vectorlogo.zone/logos/databricks/databricks-ar21.svg" },
+    { name: 'Google BigQuery', logo: "https://www.vectorlogo.zone/logos/google_bigquery/google_bigquery-ar21.svg" },
+    { name: 'Amazon S3', logo: "https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-ar21.svg" },
+    { name: 'Amazon Redshift', logo: "https://d1.awsstatic.com/logos/partners/amazon-redshift-logo.5c4babf044c976b748dab7725ece9366f8c3d528.png" },
+    { name: 'Oracle', logo: "https://www.vectorlogo.zone/logos/oracle/oracle-ar21.svg" },
+    { name: 'Salesforce', logo: "https://www.vectorlogo.zone/logos/salesforce/salesforce-ar21.svg" },
+    { name: 'CSV', logo: "https://cdn-icons-png.flaticon.com/512/6133/6133884.png" },
+    { name: 'Excel', logo: "https://www.vectorlogo.zone/logos/microsoft_excel/microsoft_excel-ar21.svg" },
+    { name: 'Google Sheets', logo: "https://www.vectorlogo.zone/logos/google_sheets/google_sheets-ar21.svg" },
+    { name: 'PostgreSQL', logo: "https://www.vectorlogo.zone/logos/postgresql/postgresql-ar21.svg" },
+    { name: 'MySQL', logo: "https://www.vectorlogo.zone/logos/mysql/mysql-ar21.svg" },
+    { name: 'SQL Server', logo: "https://www.svgrepo.com/show/303229/microsoft-sql-server-logo.svg" },
+    { name: 'SingleStore', logo: "https://www.vectorlogo.zone/logos/singlestore/singlestore-ar21.svg" },
+    { name: 'Clickhouse', logo: "https://clickhouse.com/images/logos/clickhouse-logo.svg" },
   ];
 
   return (
