@@ -1,33 +1,23 @@
 
 import React from 'react';
-import { 
-  Database, 
-  FileSpreadsheet,
-  Server, 
-  FileStack, 
-  BarChart4, 
-  Layers,
-  Snowflake,
-  Cloud,
-  TableProperties
-} from 'lucide-react';
 
 const TechStack: React.FC = () => {
-  const techIcons = [
-    { name: 'Snowflake', icon: <Snowflake className="h-12 w-12 text-[#29B5E8]" /> },
-    { name: 'Databricks', icon: <Cloud className="h-12 w-12 text-[#FF3621]" /> },
-    { name: 'Google BigQuery', icon: <Layers className="h-12 w-12 text-[#4285F4]" /> },
-    { name: 'Amazon S3', icon: <Server className="h-12 w-12 text-[#569A31]" /> },
-    { name: 'Amazon Redshift', icon: <Database className="h-12 w-12 text-[#8C4FFF]" /> },
-    { name: 'Oracle', icon: <TableProperties className="h-12 w-12 text-[#F80000]" /> },
-    { name: 'Salesforce', icon: <BarChart4 className="h-12 w-12 text-[#1589EE]" /> },
-    { name: 'Excel', icon: <FileSpreadsheet className="h-12 w-12 text-[#217346]" /> },
-    { name: 'Google Sheets', icon: <FileSpreadsheet className="h-12 w-12 text-[#0F9D58]" /> },
-    { name: 'PostgreSQL', icon: <FileStack className="h-12 w-12 text-[#336791]" /> },
-    { name: 'MySQL', icon: <Database className="h-12 w-12 text-[#4479A1]" /> },
-    { name: 'SQL Server', icon: <Database className="h-12 w-12 text-[#CC2927]" /> },
-    { name: 'SingleStore', icon: <Database className="h-12 w-12 text-[#AA00FF]" /> },
-    { name: 'Clickhouse', icon: <Database className="h-12 w-12 text-[#FFCC01]" /> },
+  const techLogos = [
+    { name: 'Snowflake', logo: "/lovable-uploads/6dcaeee2-25ff-496d-8a17-4c226a23f47f.png" },
+    { name: 'Databricks', logo: "/lovable-uploads/e06f01ce-eed4-490e-bbc4-126074383981.png" },
+    { name: 'Google BigQuery', logo: "/lovable-uploads/90a449f9-7a8d-4db5-afcb-b77e6743286c.png" },
+    { name: 'Amazon S3', logo: "/lovable-uploads/eb7991e4-c439-4e38-bce0-d3bcdbf80f42.png" },
+    { name: 'Amazon Redshift', logo: "/lovable-uploads/5d1e7cd9-1678-410d-8ef3-c3582e6d4d2c.png" },
+    { name: 'Oracle', logo: "/lovable-uploads/121ce3a6-23eb-46ab-a677-cf16ad9c5173.png" },
+    { name: 'Salesforce', logo: "/lovable-uploads/59e45b98-2f23-4d86-b599-cb6283a28e44.png" },
+    { name: 'CSV', logo: "/lovable-uploads/e6c5fbb9-5190-4375-8b09-935b3be6a604.png" },
+    { name: 'Excel', logo: "/lovable-uploads/e6c5fbb9-5190-4375-8b09-935b3be6a604.png" },
+    { name: 'Google Sheets', logo: "/lovable-uploads/90a449f9-7a8d-4db5-afcb-b77e6743286c.png" },
+    { name: 'PostgreSQL', logo: "/lovable-uploads/c7d508be-61b3-4747-b60e-2ca1463b3e06.png" },
+    { name: 'MySQL', logo: "/lovable-uploads/c7d508be-61b3-4747-b60e-2ca1463b3e06.png" },
+    { name: 'SQL Server', logo: "/lovable-uploads/121ce3a6-23eb-46ab-a677-cf16ad9c5173.png" },
+    { name: 'SingleStore', logo: "/lovable-uploads/c7d508be-61b3-4747-b60e-2ca1463b3e06.png" },
+    { name: 'Clickhouse', logo: "/lovable-uploads/c7d508be-61b3-4747-b60e-2ca1463b3e06.png" },
   ];
 
   return (
@@ -43,15 +33,22 @@ const TechStack: React.FC = () => {
         </div>
 
         <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-8 md:gap-12 items-center justify-items-center">
-            {techIcons.map((tech, index) => (
+          <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 md:gap-12 items-center justify-items-center">
+            {techLogos.map((tech, index) => (
               <div 
                 key={index}
                 className="flex flex-col items-center justify-center"
                 aria-label={tech.name}
                 title={tech.name}
               >
-                {tech.icon}
+                <div className="h-12 w-auto flex items-center justify-center mb-2">
+                  <img 
+                    src={tech.logo} 
+                    alt={`${tech.name} logo`}
+                    className="max-h-12 max-w-[100px] object-contain"
+                  />
+                </div>
+                <span className="text-xs text-gray-600 text-center">{tech.name}</span>
               </div>
             ))}
           </div>
