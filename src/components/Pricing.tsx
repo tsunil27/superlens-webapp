@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from './ui/button';
 import { Link } from 'react-router-dom';
@@ -87,20 +86,20 @@ const Pricing: React.FC = () => {
     }
   ];
   
-  // Plan summary data
+  // Plan summary data with updated pricing
   const plans = [
     {
       name: "Basic",
-      price: "£99",
+      price: "Coming Soon",
       description: "For small teams getting started with AI analytics",
-      note: "(1-month Free-Trial)",
+      note: "",
       popular: false,
       cta: "Start Free Trial",
       link: "/free-trial"
     },
     {
       name: "Pro",
-      price: "£199",
+      price: "Coming Soon",
       description: "For growing companies with advanced analytics needs",
       note: "",
       popular: true,
@@ -147,7 +146,11 @@ const Pricing: React.FC = () => {
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
                 <div className="flex items-end mb-4">
-                  <span className="text-4xl font-bold">{plan.price}</span>
+                  {plan.name === "Basic" || plan.name === "Pro" ? (
+                    <span className="text-4xl font-bold text-superlens-blue">{plan.price}</span>
+                  ) : (
+                    <span className="text-4xl font-bold">{plan.price}</span>
+                  )}
                   {plan.note && <span className="text-gray-500 text-sm ml-2">{plan.note}</span>}
                 </div>
                 <p className="text-gray-600 mb-6">{plan.description}</p>
@@ -229,21 +232,6 @@ const Pricing: React.FC = () => {
                   </TableCell>
                 </TableRow>
               ))}
-              <TableRow>
-                <TableCell className="py-4 px-6 border-t border-gray-200 font-bold">
-                  Monthly Pricing (ballpark est.)
-                </TableCell>
-                <TableCell className="py-4 px-6 border-t border-gray-200 text-lg font-semibold">
-                  £99
-                  <div className="text-sm font-normal text-gray-500">(1-month Free-Trial)</div>
-                </TableCell>
-                <TableCell className="py-4 px-6 border-t border-gray-200 text-lg font-semibold">
-                  £199
-                </TableCell>
-                <TableCell className="py-4 px-6 border-t border-gray-200 text-lg font-semibold">
-                  Custom Pricing
-                </TableCell>
-              </TableRow>
             </TableBody>
           </Table>
         </div>
