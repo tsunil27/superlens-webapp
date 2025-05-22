@@ -11,6 +11,9 @@ import BookDemoPage from "./pages/BookDemoPage";
 import AboutUsPage from "./pages/AboutUsPage";
 import RegisterPage from "./pages/RegisterPage";
 import NexFabHome from "./pages/NexFabHome";
+import VisionPage from "./pages/VisionPage";
+import SolutionsPage from "./pages/SolutionsPage";
+import PartnersPage from "./pages/PartnersPage";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +25,9 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<NexFabHome />} />
+          <Route path="/vision" element={<VisionPage />} />
+          <Route path="/solutions" element={<SolutionsPage />} />
+          <Route path="/partners" element={<PartnersPage />} />
           <Route path="/products/superlens" element={<Index />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/pricing" element={<PricingPage />} />
